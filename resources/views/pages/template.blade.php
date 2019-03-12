@@ -11,12 +11,14 @@
     <!-- wrappers for visual page editor and boxed version of template -->
     <div id="canvas">
         <div id="box_wrapper">
-            <!-- template sections -->
-            @include('layout._header')
-            @include('layout._nav')
-            @yield('content')
-            @include('layout._footer')
-            @include('layout._bottom')
+            <div id="app">
+                <!-- template sections -->
+                @include('layout._header')
+                @include('layout._nav')
+                @yield('content')
+                @include('layout._footer')
+                @include('layout._bottom')
+            </div>
         </div>
         <!-- eof #box_wrapper -->
     </div>
