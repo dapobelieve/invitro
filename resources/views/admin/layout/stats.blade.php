@@ -4,13 +4,13 @@
                                 <li>
                                     <a href="#">
                                         <i class="icon-cal"></i>
-                                        Manage Events
+                                        23 Trainings
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <i class="icon-shopping-bag"></i>
-                                        Manage Orders
+                                        0 New Orders
                                     </a>
                                 </li>
                                 <li>
