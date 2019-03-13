@@ -5,11 +5,13 @@
         </li>
         <li class="">
             <a href="#">
+                <i class="fa fa-medkit"></i>
                 <span>Trainings</span>
             </a>
         </li>
         <li class="">
             <a href="#">
+                <i class="fa fa-shopping-cart"></i>
                 <span>Store</span>
             </a>
         </li>
