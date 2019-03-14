@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 @include('admin.layout.head')   
 
     <body data-color="grey" class="flat">
@@ -14,8 +13,9 @@
             {{-- @include('admin.layout.topnav') --}}
            
             @include('admin.layout._adminNav')
-
-            @yield('admin-content')
+            <div id="app">
+                @yield('admin-content')
+            </div>
             
 
             @include('admin.layout.footer')

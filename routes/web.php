@@ -16,8 +16,15 @@ Route::get('contact', function() {
 })->name('contact');
 
 
+/**
+ * Admin section
+ */
+Route::group(['prefix' => 'dashboard'], function () {
+    Route::get('home', function() {
+        return view('admin.home');
+    })->name('admin');
 
-
-Route::get('admin', function() {
-    return view('admin.home');
-})->name('admin');
+    Route::get('training', function () {
+        return view('admin.training');
+    })->name('admin-train');
+});

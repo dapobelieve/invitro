@@ -874,7 +874,7 @@ $.extend($.validator, {
 			}
 		}
 
-		// maxlength may be returned as -1, 2147483647 (IE) and 524288 (safari) for text inputs
+		// maxlength may be returned as -1, 2147483647 (IE) and 524288 (safari) for
 		if ( rules.maxlength && /-1|2147483647|524288/.test(rules.maxlength) ) {
 			delete rules.maxlength;
 		}
