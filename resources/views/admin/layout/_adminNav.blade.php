@@ -1,10 +1,10 @@
 <div id="sidebar">
     <ul>
-        <li class="active">
+        <li class="{{ Request::is('dashboard/home')  ? 'active' : '' }}">
             <a href="{{ route('admin') }}">
             <i class="fa fa-home"></i> <span>Dashboard</span></a>
         </li>
-        <li class="">
+        <li class="{{ Request::is('dashboard/training')  ? 'active' : '' }}">
             <a href="{{ url('dashboard/training#/home')  }}">
                 <i class="fa fa-medkit"></i>
                 <span>Trainings</span>

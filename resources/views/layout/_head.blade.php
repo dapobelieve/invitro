@@ -9,5 +9,6 @@
     <link rel="stylesheet" href="/assets/css/fonts.css">
     <link rel="stylesheet" href="/assets/css/main.css" class="color-switcher-link">
     <link rel="stylesheet" href="/assets/css/shop.css">
+
     <script src="/assets/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>

@@ -3,23 +3,15 @@
         <div class="container-fluid">
 
             <div class="row">
-                <div class="col-xs-12 center" style="text-align: center;">
+                <div v-if="!hideParent" class="col-xs-12 center" easeIn style="text-align: center;">
                     <ul class="stats-plain">
                         <li>
-                            <h4>36094</h4>
-                            <span>Total Visits</span>
+                            <h4>{{ tCount }}</h4>
+                            <span>Trainings Courses</span>
                         </li>
                         <li>
                             <h4>1433</h4>
                             <span>Users Registered</span>
-                        </li>
-                        <li>
-                            <h4>8650</h4>
-                            <span>Completed Orders</span>
-                        </li>
-                        <li>
-                            <h4>29</h4>
-                            <span>Pending Orders</span>
                         </li>
                     </ul>
                 </div>
@@ -36,8 +28,24 @@
 </template>
 
 <script>
+    import Bus from '../../../../helpers/bus.js'
     export default {
-        name: "index"
+        name: "index",
+        data () {
+            return {
+                tCount: 0,
+                hideParent: false
+            }
+        },
+        mounted() {
+            Bus.$on('trainingCount', (data) => {
+                this.tCount = data
+            });
+
+            Bus.$on('hideParentView', (payLoad) => {
+                this.hideParent = payLoad;
+            })
+        }
     }
 </script>
 

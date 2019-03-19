@@ -1,7 +1,8 @@
 import {
     TrainingHome,
     TrainingList,
-    TrainingCreate
+    TrainingCreate,
+    TrainingDetails
 } from '../components/training/'
 
 
@@ -19,6 +20,11 @@ export default [
                 path: '/create-training',
                 component:TrainingCreate,
                 name: 'train-create'
+            },
+            {
+                path: 'training-details/:id',
+                component: TrainingDetails,
+                name: 'train-detail'
             }
 
         ]
