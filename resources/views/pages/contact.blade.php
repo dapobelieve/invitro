@@ -1,6 +1,6 @@
 @extends('pages.template')
 
-@section('page.title', 'Contact Us | Invitrofertilization Academy')
+@section('page.title', 'Contact Us | '. config('site.site.name'))
 
 @section('content')
 

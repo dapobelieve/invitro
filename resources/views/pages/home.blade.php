@@ -1,6 +1,6 @@
 @extends('pages.template')
 
-@section('page.title', 'Welcome to Invitrofertilization Academy')
+@section('page.title', 'Welcome to '. config('site.site.name'))
 
 @section('content')
     @include('layout._slider')

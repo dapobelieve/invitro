@@ -1,6 +1,6 @@
 @extends('pages.template')
 
-@section('page.title', 'Trainings | Invitrofertilization Academy')
+@section('page.title', 'Trainings | '. config('site.site.name'))
 
 @section('content')
 <section class="page_breadcrumbs ds color parallax section_padding_top_75 section_padding_bottom_75">

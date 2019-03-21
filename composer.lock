@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "330ef6b67185fc3648fd3f9bb9d7bfd4",
+    "content-hash": "a067c7cdfe6d733c0967e0d1e62c65e5",
     "packages": [
         {
             "name": "cloudinary/cloudinary_php",
