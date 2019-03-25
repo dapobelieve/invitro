@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Training;
 use App\Http\Requests\TrainingRequest;
-use App\Jobs\UploadTrainingMaterials;
 use Cloudder;
 use Storage;
 use Image;

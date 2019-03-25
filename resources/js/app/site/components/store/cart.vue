@@ -16,10 +16,10 @@
                 </div>
             </div>
         </section>
-        <section class="ls section_padding_top_100 section_padding_bottom_75 columns_padding_25">
+        <section class="ls section_padding_top_25 section_padding_bottom_25 columns_padding_25">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-7 col-md-12 col-lg-9 col-sm-push-5 col-md-push-4 col-lg-push-3">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="table-responsive">
                             <table class="table shop_table cart cart-table">
                                 <thead>
@@ -105,9 +105,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--eof .col-sm-8 (main content)-->
-                    <!-- sidebar -->
-                    <!-- eof aside sidebar -->
                 </div>
             </div>
         </section>
@@ -147,6 +144,7 @@
         },
         mounted() {
             this.getCart();
+            window.scrollTo(20, 0);
         }
     }
 </script>

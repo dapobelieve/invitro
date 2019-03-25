@@ -10,8 +10,8 @@
                 <span>Trainings</span>
             </a>
         </li>
-        <li class="">
-            <a href="#">
+        <li class="{{ Request::is('dashboard/store')  ? 'active' : '' }}">
+            <a href="{{ url('dashboard/store#/store')  }}">
                 <i class="fa fa-shopping-cart"></i>
                 <span>Store</span>
             </a>

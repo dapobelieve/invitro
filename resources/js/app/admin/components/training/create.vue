@@ -230,9 +230,11 @@ export default {
                 }
             })
             .then((response) => {
-                btn.state = false;
-                alert(response.data.message);
-                console.log(response.data)
+                this.btn.state = !this.btn.state;
+                this.$swal(response.data.message);
+                this.$router.replace({
+                    name: 'train-list'
+                })
             })
             .catch((error) => {
                 console.log(error.response.data)

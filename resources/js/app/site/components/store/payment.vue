@@ -181,6 +181,7 @@
         },
         mounted ()
         {
+            window.scrollTo(20, 0);
             if (this.embed) {
                 this.payWithPaystack()
             }

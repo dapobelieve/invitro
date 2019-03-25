@@ -24,19 +24,23 @@
                                 <!-- header toggler --><span class="toggle_menu"><span></span></span>
                             </div>
                             <div class="header_right_buttons cs display_table_cell text-right">
-                                {{--<ul class="inline-list menu greylinks">--}}
-                                    {{--<li> --}}
+                                <ul class="inline-list menu greylinks" style="margin-top: 10px; margin-bottom: 10px;">
+                                    <li>
                                       {{--<a href="#" class="search_modal_button header-button">--}}
-                                      {{--<i class="fa fa-search" aria-hidden="true"></i>--}}
+                                        {{--<i class="fa fa-search" aria-hidden="true"></i>--}}
                                       {{--</a>--}}
-                                    {{--</li>--}}
-                                    {{--<li> <a href="shop-register.html" class="header-button">--}}
-                                      {{--<i class="fa fa-user" aria-hidden="true"></i>--}}
-                                  {{--</a> </li>--}}
-                                          {{--<li> <a href="shop-cart-right.html" class="header-button">--}}
-                                      {{--<i class="fa fa-shopping-basket" aria-hidden="true"></i>--}}
-                                  {{--</a> </li>  --}}
-                                {{--</ul>--}}
+                                    </li>
+                                    <li>
+                                        {{--<a href="shop-register.html" class="header-button">--}}
+                                              {{--<i class="fa fa-user" aria-hidden="true"></i>--}}
+                                          {{--</a>--}}
+                                    </li>
+                                    <li>
+                                        {{--<a href="shop-cart-right.html" class="header-button">--}}
+                                            {{--<i class="fa fa-shopping-basket" aria-hidden="true"></i>--}}
+                                        {{--</a>--}}
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>

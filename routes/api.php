@@ -22,3 +22,27 @@ Route::get('verify-transaction-ref/{trxnref}', 'Api\VerificationController@verif
 
 // verify if payment was truly made on paystack
 Route::get('verify-payment/{payment}/{payref}', 'Api\VerificationController@verifyPaymentRef');
+
+
+
+
+
+
+
+
+
+/**
+ * Admin Section
+ */
+
+Route::get('index', 'Api\ProductController@index');
+Route::get('products', 'Api\ProductController@list');
+
+//get all orders
+Route::get('orders', 'Api\OrdersController@index');
+
+//add new product
+Route::post('create', 'Api\ProductController@create');
+
+//delete product
+Route::get('delete/{id}', 'Api\ProductController@delete');

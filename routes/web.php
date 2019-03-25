@@ -27,4 +27,8 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::get('training', function () {
         return view('admin.training');
     })->name('admin-train');
+
+    Route::get('store', function () {
+        return view('admin.store');
+    })->name('admin-store');
 });

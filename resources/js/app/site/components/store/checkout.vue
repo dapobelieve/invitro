@@ -145,8 +145,6 @@
         </section>
     </div>
 </template>
-
-
 <script>
     import { mapGetters, mapActions } from 'vuex'
     export default {
@@ -216,6 +214,7 @@
         },
         mounted() {
             this.getCart()
+            window.scrollTo(20, 0);
         }
     }
 </script>

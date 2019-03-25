@@ -4,9 +4,9 @@
 @include('layout._head')
 
 <body>
-    <div class="preloader">
-        <div class="preloader_image"></div>
-    </div>
+    {{--<div class="preloader">--}}
+        {{--<div class="preloader_image"></div>--}}
+    {{--</div>--}}
     <!-- eof .modal -->
     <!-- wrappers for visual page editor and boxed version of template -->
     <div id="canvas">

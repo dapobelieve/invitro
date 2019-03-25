@@ -5,6 +5,12 @@ import {
     TrainingDetails
 } from '../components/training/'
 
+import {
+    StoreHome,
+    StoreIndex,
+    StoreOrders,
+    StoreCreate
+} from '../components/store/'
 
 export default [
     {
@@ -27,6 +33,27 @@ export default [
                 name: 'train-detail'
             }
 
+        ]
+    },
+    {
+        path: '/store',
+        component: StoreIndex,
+        children: [
+            {
+                path: '',
+                component: StoreHome,
+                name: 'product-home'
+            },
+            {
+                path: 'orders',
+                component: StoreOrders,
+                name: 'product-orders'
+            },
+            {
+                path: 'create',
+                component: StoreCreate,
+                name: 'product-create'
+            }
         ]
     }
 ]
