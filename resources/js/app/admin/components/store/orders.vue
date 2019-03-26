@@ -10,15 +10,17 @@
                         </div>
                         <div class="widget-content">
                             <loader v-if="!orders.length"></loader>
-                            <table v-else class="table table-bordered table-striped table-hover">
+                            <table v-else class="table table-bordered table-responsive table-striped table-hover">
                                 <thead>
                                 <tr>
                                     <th></th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
-                                    <th>Phone</th>
+                                    <th>Amount</th>
+                                    <th>Items</th>
                                     <th>Payment Ref.</th>
+                                    <th>Date</th>
                                     <th>options</th>
                                 </tr>
                                 </thead>
@@ -30,10 +32,12 @@
                                     <td>{{ data.phone }}</td>
                                     <td v-if="data.payment">&#8358{{ (data.payment.amount).toLocaleString() }}</td>
                                     <td v-else>Not Paid</td>
-                                    <td></td>
+                                    <td>{{ data.items.length }}</td>
+                                    <td>{{ formatDate(data.payment.updated_at) }}</td>
+                                    <td v-if="data.payment"> <strong>{{ data.payment.payment_ref }} </strong></td>
                                     <td>
                                         <router-link
-                                                :to="{name: 'train-detail', params:{id: data.id}}"
+                                                :to="{name: 'order-details', params:{ref: data.ref}}"
                                                 class="btn btn-primary btn-xs">Details
                                         </router-link>
                                         <button type="submit" class="btn btn-danger btn-xs">Delete</button>
@@ -51,6 +55,7 @@
 </template>
 <script>
     import loader from '../../../../helpers/loader.vue'
+    import moment from 'moment'
     export default {
         data () {
             return {
@@ -58,6 +63,9 @@
             }
         },
         methods: {
+            formatDate(dDate) {
+                return moment(dDate).format("MMM Do YY");
+            },
             getOrders() {
                 axios.get('api/orders')
                     .then((response) => {

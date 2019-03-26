@@ -14,8 +14,12 @@
                             <span>Orders</span>
                         </li>
                         <li>
-                            <h4>{{ stats.pending }}</h4>
+                            <h4>{{ stats.new }}</h4>
                             <span>New Orders</span>
+                        </li>
+                        <li>
+                            <h4>{{ stats.processed }}</h4>
+                            <span>Unprocessed Orders</span>
                         </li>
                     </ul>
                 </div>
@@ -48,7 +52,22 @@
             getStats () {
                 axios.get('api/index')
                     .then(response => {
-                        this.stats = response.data.data
+
+                        this.stats.products = response.data.data.products;
+                        var newOrder = 0;
+                        var processed = 0
+                        response.data.data.orders.filter(x => {
+                            if (x.viewed == 0)
+                                newOrder += 1;
+                            if (x.proccessed_at == null)
+                                processed += 1;
+                        });
+
+                        this.stats.new = newOrder;
+                        this.stats.processed = processed
+
+                        this.stats.orders = response.data.data.orders.length
+
                     })
             }
         },

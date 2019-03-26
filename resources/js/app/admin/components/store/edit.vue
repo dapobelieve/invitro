@@ -21,14 +21,20 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 col-md-3 col-lg-2 control-label">Cost</label>
+                                    <label class="col-sm-3 col-md-3 col-lg-2 control-label">Price</label>
                                     <div class="col-sm-9 col-md-9 col-lg-10">
                                         <input
                                                 type="number"
                                                 min="100"
-                                                v-model.numnber="product.cost"
+                                                v-model.numnber="product.price"
                                                 placeholder="Product Cost"
                                                 class="form-control input-sm" />
+                                    </div>
+                                </div>
+                                <div v-if="product.prevImage !== null " class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-lg-2 control-label">Current Image</label>
+                                    <div class="col-sm-9 col-md-3 col-lg-10 col-md-offset-5">
+                                        <img :src="getImage()" style="height: auto; width: 200px" class="img img-responsive">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -57,8 +63,8 @@
                                     <loader></loader>
                                 </div>
                                 <div v-else class="form-actions">
-                                    <button type="submit" class="btn btn-primary btn-sm">Save</button>
-                                    <a class="text-danger" href="#">Cancel</a>
+                                    <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+                                    <!--<a class="text-danger" href="#">Cancel</a>-->
                                 </div>
                             </form>
                         </div>
@@ -77,7 +83,7 @@
     import Bus from '../../../../helpers/bus.js'
     // import moment from 'moment';
     export default {
-        name: "create",
+        name: "edit",
         data () {
             return {
                 btn: {
@@ -127,6 +133,9 @@
             loader
         },
         methods: {
+            getImage () {
+                return '/store/original/'+this.product.prevImage;
+            },
             imageAdded (e) {
                 this.product.image = e;
             },
@@ -136,10 +145,15 @@
             getProduct(id) {
                 axios.get('api/edit/'+id)
                 .then(response => {
-
+                    this.product = response.data.data.product
+                    this.product.prevImage = response.data.data.product.image;
+                    this.product.image = ''
+                })
+                .catch (error => {
+                    this.$swal(error.response.data)
                 })
             },
-            addProduct ()
+            editProduct ()
             {
                 this.error.status = false;
 
@@ -150,7 +164,7 @@
                     return;
                 }
 
-                if(isNaN(this.product.cost)) {
+                if(isNaN(this.product.price)) {
                     this.error.message = "Enter a Product amount";
                     this.error.status = true;
                     window.scrollTo(100, 0);
@@ -164,12 +178,12 @@
                     return;
                 }
 
-                this.btn.state = !this.btn.false;
+                this.btn.state = !this.btn.state;
 
                 const td = new FormData();
 
                 td.append('name', this.product.name);
-                td.append('price', this.product.cost);
+                td.append('price', this.product.price);
                 td.append('details', this.product.details);
 
                 if(this.product.image != '') {
@@ -177,7 +191,7 @@
                 }
 
 
-                axios.post('api/create', td, {
+                axios.post('api/update/'+this.product.id, td, {
                     headers: {
                         "Content-type": "multipart/form-data"
                     },
@@ -194,12 +208,13 @@
                         })
                     })
                     .catch((error) => {
+                        this.btn.state = !this.btn.state;
                         console.log(error.response.data)
                     });
             }
         },
         mounted() {
-            this.getProduct();
+            this.getProduct(this.$route.params.id);
         }
     }
 </script>

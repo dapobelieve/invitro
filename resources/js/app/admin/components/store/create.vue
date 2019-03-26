@@ -20,13 +20,14 @@
                                         <input type="text" v-model="product.name" placeholder="Name" class="form-control input-sm" />
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label class="col-sm-3 col-md-3 col-lg-2 control-label">Cost</label>
+                                    <label class="col-sm-3 col-md-3 col-lg-2 control-label">Price</label>
                                     <div class="col-sm-9 col-md-9 col-lg-10">
                                         <input
                                                 type="number"
                                                 min="100"
-                                                v-model.numnber="product.cost"
+                                                v-model.numnber="product.price"
                                                 placeholder="Product Cost"
                                                 class="form-control input-sm" />
                                     </div>
@@ -127,6 +128,7 @@
             loader
         },
         methods: {
+
             imageAdded (e) {
                 this.product.image = e;
             },
@@ -144,7 +146,7 @@
                     return;
                 }
 
-                if(isNaN(this.product.cost)) {
+                if(isNaN(this.product.price)) {
                     this.error.message = "Enter a Product amount";
                     this.error.status = true;
                     window.scrollTo(100, 0);
@@ -163,7 +165,7 @@
                 const td = new FormData();
 
                 td.append('name', this.product.name);
-                td.append('price', this.product.cost);
+                td.append('price', this.product.price);
                 td.append('details', this.product.details);
 
                 if(this.product.image != '') {

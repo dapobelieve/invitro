@@ -36,6 +36,7 @@ Route::get('verify-payment/{payment}/{payref}', 'Api\VerificationController@veri
  */
 
 Route::get('index', 'Api\ProductController@index');
+
 Route::get('products', 'Api\ProductController@list');
 
 //get all orders
@@ -45,4 +46,12 @@ Route::get('orders', 'Api\OrdersController@index');
 Route::post('create', 'Api\ProductController@create');
 
 //delete product
-Route::get('delete/{id}', 'Api\ProductController@delete');
+Route::delete('delete/{id}', 'Api\ProductController@delete');
+
+Route::get('edit/{id}', 'Api\ProductController@edit');
+
+//update product
+Route::post('update/{id}', 'Api\ProductController@update');
+
+//get an Order
+Route::get('get-order/{ref}', 'Api\OrdersController@getOrder');

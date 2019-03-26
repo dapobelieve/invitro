@@ -14,4 +14,9 @@ class Store extends Model
     protected $dates = [
         'deleted_at'
     ];
+
+    public function storeOrders()
+    {
+        return $this->hasMany(OrderDetails::class, 'store_id');
+    }
 }

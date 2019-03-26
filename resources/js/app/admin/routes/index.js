@@ -9,7 +9,9 @@ import {
     StoreHome,
     StoreIndex,
     StoreOrders,
-    StoreCreate
+    StoreCreate,
+    StoreEdit,
+    StoreOrderDetails
 } from '../components/store/'
 
 export default [
@@ -53,6 +55,16 @@ export default [
                 path: 'create',
                 component: StoreCreate,
                 name: 'product-create'
+            },
+            {
+                path: 'edit-product/:id',
+                component: StoreEdit,
+                name: 'product-edit'
+            },
+            {
+                path: 'order-details/:ref',
+                component: StoreOrderDetails,
+                name: 'order-details'
             }
         ]
     }

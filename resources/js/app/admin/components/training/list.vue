@@ -31,7 +31,7 @@
                             <tr v-for="(data, index) in data.trainings">
                                 <td>{{ index + 1 }}</td>
                                 <td>{{ data.title }}</td>
-                                <td>N {{ data.price }}</td>
+                                <td>&#8358{{ (data.price).toLocaleString() }}</td>
                                 <td>45</td>
                                 <td>
                                     <router-link

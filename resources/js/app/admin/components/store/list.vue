@@ -33,12 +33,12 @@
                                     <td>{{ data.name }}</td>
                                     <td>&#8358{{ (data.price).toLocaleString() }}</td>
                                     <td>
+                                        <!--<router-link-->
+                                                <!--:to="{name: 'train-detail', params:{id: data.id}}"-->
+                                                <!--class="btn btn-primary btn-xs">Details-->
+                                        <!--</router-link>-->
                                         <router-link
-                                                :to="{name: 'train-detail', params:{id: data.id}}"
-                                                class="btn btn-primary btn-xs">Details
-                                        </router-link>
-                                        <router-link
-                                                :to="{name: 'train-detail', params:{id: data.id}}"
+                                                :to="{name: 'product-edit', params:{id: data.id}}"
                                                 class="btn btn-info btn-xs">Edit
                                         </router-link>
                                         <button @click="deleteItem(data.id)" type="submit" class="btn btn-danger btn-xs">Delete</button>
@@ -75,7 +75,7 @@
 
                 })
                 .then((result) => {
-                    axios.get(`api/delete/${id}`)
+                    axios.delete(`api/delete/${id}`)
                     .then(response => {
                         Bus.$emit('item-deleted');
                         this.data.products = this.data.products.filter(item => {
@@ -88,7 +88,6 @@
             getStoreItems() {
                 axios.get('api/products')
                     .then(response => {
-
                         this.data = response.data.data
                     })
                     .catch(error => {
