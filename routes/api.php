@@ -11,7 +11,12 @@ Route::get('get-training/{id}', 'Api\TrainingController@show');
  * Store Section
  */
 
+//all products
 Route::get('all-products', 'Api\StoreController@index');
+
+
+//get a product
+Route::get('get-product/{store}', 'Api\StoreController@getProduct');
 
 Route::post('place-order', 'Api\StoreController@placeOrder');
 

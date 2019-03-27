@@ -3,7 +3,8 @@ import {
     StoreHome,
     StoreCart,
     StoreCheckout,
-    StorePayment
+    StorePayment,
+    StoreDetails
 } from "../components/store";
 
 export default [
@@ -15,6 +16,11 @@ export default [
                 path: '',
                 component: StoreHome,
                 name: 'store-home'
+            },
+            {
+                path: '/product-details/:slug',
+                component: StoreDetails,
+                name: 'store-product-details'
             },
             {
                 path: '/cart',

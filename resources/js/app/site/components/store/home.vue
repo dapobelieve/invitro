@@ -7,7 +7,7 @@
                         <h2>Products</h2>
                         <ol class="breadcrumb highlightlinks">
                             <li>
-                                <a href="index.html"> Home </a>
+                                <!--<a h> Home </a>-->
                             </li>
                             <li class="active">Products</li>
                         </ol>
@@ -21,7 +21,7 @@
                     <div class="col-sm-12">
                         <div class="shop-sorting">
                             <form class="form-inline content-justify vertical-center content-margins">
-                                <div> Showing 1-6 of 36 results </div>
+                                <!--<div> Showing 1-6 of 36 results </div>-->
                                 <div class="righty">
                                     <div class="item-a">
                                         <router-link :to="{name: 'store-cart'}">View Cart {{ cart.length }}</router-link>
@@ -40,16 +40,16 @@
                         </div>
                         <!-- eof .columns-* -->
                         <div class="row">
-                            <div class="col-sm-12 text-center">
-                                <ul class="pagination with_border">
-                                    <li class="disabled"><a href="#"><span class="sr-only">Prev</span><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#"><span class="sr-only">Next</span><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
+                            <!--<div class="col-sm-12 text-center">-->
+                                <!--<ul class="pagination with_border">-->
+                                    <!--<li class="disabled"><a href="#"><span class="sr-only">Prev</span><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>-->
+                                    <!--<li class="active"><a href="#">1</a></li>-->
+                                    <!--<li><a href="#">2</a></li>-->
+                                    <!--<li><a href="#">3</a></li>-->
+                                    <!--<li><a href="#">4</a></li>-->
+                                    <!--<li><a href="#"><span class="sr-only">Next</span><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
                         </div>
                     </div>
                 </div>

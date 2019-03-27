@@ -19,4 +19,9 @@ class Store extends Model
     {
         return $this->hasMany(OrderDetails::class, 'store_id');
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

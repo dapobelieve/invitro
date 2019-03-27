@@ -7,7 +7,7 @@ Route::get('trainings', function () {
     return view('pages.training');
 })->name('trainings');
 
-Route::get('store', function() {
+Route::get('shop', function() {
     return view('pages.store');
 })->name('store');
 

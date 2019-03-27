@@ -1,13 +1,15 @@
 <template>
     <li class="product type-product">
         <div class="vertical-item content-padding text-center with_border">
-            <div class="item-media muted_background bottommargin_30"> <img src="/assets/images/shop/01.png" alt="" /> </div>
+            <div class="item-media muted_background bottommargin_30">
+                <img :src="getImage()" alt="" /> </div>
             <div class="item-content">
                 <h4 class="hover-color2 bottommargin_0">
-                    <a href="shop-product-right.html">{{ product.name }}</a> </h4>
+                    <router-link :to="{name: 'store-product-details', params: {slug: product.slug}}">{{ product.name }}</router-link>
+                </h4>
                 <p class="price semibold">
                     <ins>
-                        <span class="amount"><span>&#x20A6</span>{{ product.price }}</span>
+                        <span class="amount"><span>&#x20A6</span>{{(product.price).toLocaleString() }}</span>
                     </ins>
                 </p>
                 <p>{{ product.summary }}</p>
@@ -24,6 +26,9 @@
     export default {
         props: ['product'],
         methods: {
+            getImage () {
+                return '/store/crop/'+this.product.image;
+            },
             ...mapActions({
                 addProductToCart: 'shop/addProductToCart'
             }),

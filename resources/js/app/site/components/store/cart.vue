@@ -37,12 +37,13 @@
                                         <div class="media">
                                             <div class="media-left">
                                                 <a href="shop-product-right.html">
-                                                    <img class="media-object cart-product-image" src="/assets/images/shop/01.png" alt="">
+                                                    <img class="media-object cart-product-image" :src="getImage(item.product.image)" alt="">
                                                 </a>
                                             </div>
                                             <div class="media-body">
                                                 <h4 class="media-heading">
-                                                    <a >{{ item.product.name }}</a>
+                                                    <router-link :to="{name: 'store-product-details', params: {slug: item.product.slug}}">
+                                                        {{ item.product.name }}</router-link>
                                                 </h4>
                                             </div>
                                         </div>
@@ -125,6 +126,9 @@
             }
         },
         methods: {
+            getImage (data) {
+                return '/store/crop/'+data;
+            },
             ...mapActions({
                 getCart: 'shop/getCart',
                 updateCart: 'shop/updateCart',

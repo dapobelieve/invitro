@@ -12,7 +12,7 @@
                                         <li> <a href="{{ route('trainings') }}">Trainings</a>
                                         </li>
                                         <li> 
-                                            <a href="{{ url('store#/products') }}">Store</a>
+                                            <a href="{{ url('shop#/products') }}">Store</a>
                                         </li>
                                         <li> 
                                             <a href="{{ route('contact') }}">Contacts</a>
