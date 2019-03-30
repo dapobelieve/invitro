@@ -1,12 +1,12 @@
 <template>
     <div class="cart">
-        <section class="page_breadcrumbs ds color parallax section_padding_top_75 section_padding_bottom_75">
+        <section class="page_breadcrumbs to_animate ds color parallax section_padding_top_75 section_padding_bottom_75">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 text-center">
                         <h2>{{ carter.length }} Cart Items</h2>
                         <ol class="breadcrumb highlightlinks">
-                            <li> <a href="index.html">
+                            <li> <a style="cursor: pointer" @click="home()" >
                                 Home
                             </a> </li>
                             <li><router-link :to="{name: 'store-home'}">Shop</router-link> </li>
@@ -128,6 +128,9 @@
         methods: {
             getImage (data) {
                 return '/store/crop/'+data;
+            },
+            home () {
+                window.location = window.location.origin
             },
             ...mapActions({
                 getCart: 'shop/getCart',

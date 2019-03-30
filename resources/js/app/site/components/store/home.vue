@@ -7,7 +7,7 @@
                         <h2>Products</h2>
                         <ol class="breadcrumb highlightlinks">
                             <li>
-                                <!--<a h> Home </a>-->
+                                <a style="cursor: pointer" @click="home()"> Home </a>
                             </li>
                             <li class="active">Products</li>
                         </ol>
@@ -68,6 +68,9 @@
             Product
         },
         methods: {
+            home () {
+                window.location = window.location.origin
+            },
             ...mapActions({
                 getProducts: 'shop/getProducts'
             })

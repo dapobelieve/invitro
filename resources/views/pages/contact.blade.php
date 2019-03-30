@@ -8,9 +8,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 text-center">
-                            <h2>Contact 2</h2>
+                            <h2>We would love to hear from you.</h2>
                             <ol class="breadcrumb highlightlinks">
-                                <li> <a href="index.html">
+                                <li>
+                                    <a href="{{ route('home')  }}">
                             Home
                         </a> </li>
                                 <li class="active">Contact Us</li>
@@ -26,7 +27,8 @@
                         <div class="col-sm-4 to_animate" data-animation="pullDown">
                             <div class="teaser text-center">
                                 <div class="teaser_icon highlight2 size_normal"> <i class="rt-icon2-phone5"></i> </div>
-                                <p> <span class="grey">Phone:</span> +12 345 678 9123<br> <span class="grey">Fax:</span> +12 345 678 9123 </p>
+                                <p> <span class="grey">Phone:</span> {{ config('site.site.phone') }}<br>
+                                </p>
                             </div>
                         </div>
                         <div class="col-sm-4 to_animate" data-animation="pullDown">
@@ -38,7 +40,7 @@
                         <div class="col-sm-4 to_animate" data-animation="pullDown">
                             <div class="teaser text-center">
                                 <div class="teaser_icon highlight2 size_normal"> <i class="rt-icon2-mail"></i> </div>
-                                <p>pharmacom@example.com</p>
+                                <p>{{ config('site.site.email') }}</p>
                             </div>
                         </div>
                     </div>

@@ -6,7 +6,7 @@
                     <div class="col-sm-12 text-center">
                         <h2>Checkout</h2>
                         <ol class="breadcrumb highlightlinks">
-                            <li> <a href="index.html">
+                            <li> <a style="cursor: pointer" @click="home">
                                 Home
                             </a> </li>
                             <li> <router-link :to="{name: 'store-home'}">Shop</router-link>
@@ -170,6 +170,9 @@
             })
         },
         methods: {
+            home () {
+                window.location = window.location.origin
+            },
             ...mapActions({
                 getCart: 'shop/getCart',
                 userData: 'shop/userData',
@@ -177,12 +180,12 @@
             send () {
                 //validate users input
                 if(!this.form.name || !this.form.phone || !this.form.email || !this.form.address) {
-                    alert('All Fields Required');
+                    this.$swal('All Fields Required');
                     return;
                 }
 
                 if(isNaN(this.form.phone) || this.form.phone.length !== 11) {
-                    alert('Enter a valid phone number');
+                    this.$swal('Enter a valid phone number');
                     return;
                 }
 
@@ -196,13 +199,13 @@
                     context: this
                 })
                 .then(response => {
-                    this.$router.push({
+                    this.$router.replace({
                         name: 'store-pay',
                         params: {
                             ref: response.data.data.ref
                         }
                     });
-                    console.log(response.data)
+                    // console.log(response.data)
                 })
                 .catch(error => {
                     this.btn.state = !this.btn.state;

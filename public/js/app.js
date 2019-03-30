@@ -37691,7 +37691,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     components: {
         Product: __WEBPACK_IMPORTED_MODULE_0__product___default.a
     },
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["b" /* mapActions */])({
+    methods: _extends({
+        home: function home() {
+            window.location = window.location.origin;
+        }
+    }, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["b" /* mapActions */])({
         getProducts: 'shop/getProducts'
     })),
     computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["c" /* mapGetters */])({
@@ -37949,7 +37953,41 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "store-home" }, [
-    _vm._m(0),
+    _c(
+      "section",
+      {
+        staticClass:
+          "page_breadcrumbs ds color parallax section_padding_top_75 section_padding_bottom_75"
+      },
+      [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-12 text-center" }, [
+              _c("h2", [_vm._v("Products")]),
+              _vm._v(" "),
+              _c("ol", { staticClass: "breadcrumb highlightlinks" }, [
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticStyle: { cursor: "pointer" },
+                      on: {
+                        click: function($event) {
+                          return _vm.home()
+                        }
+                      }
+                    },
+                    [_vm._v(" Home ")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "active" }, [_vm._v("Products")])
+              ])
+            ])
+          ])
+        ])
+      ]
+    ),
     _vm._v(" "),
     _c(
       "section",
@@ -38021,35 +38059,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "section",
-      {
-        staticClass:
-          "page_breadcrumbs ds color parallax section_padding_top_75 section_padding_bottom_75"
-      },
-      [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-sm-12 text-center" }, [
-              _c("h2", [_vm._v("Products")]),
-              _vm._v(" "),
-              _c("ol", { staticClass: "breadcrumb highlightlinks" }, [
-                _c("li"),
-                _vm._v(" "),
-                _c("li", { staticClass: "active" }, [_vm._v("Products")])
-              ])
-            ])
-          ])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -38706,6 +38716,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     methods: _extends({
         getImage: function getImage(data) {
             return '/store/crop/' + data;
+        },
+        home: function home() {
+            window.location = window.location.origin;
         }
     }, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])({
         getCart: 'shop/getCart',
@@ -38743,7 +38756,7 @@ var render = function() {
       "section",
       {
         staticClass:
-          "page_breadcrumbs ds color parallax section_padding_top_75 section_padding_bottom_75"
+          "page_breadcrumbs to_animate ds color parallax section_padding_top_75 section_padding_bottom_75"
       },
       [
         _c("div", { staticClass: "container" }, [
@@ -38752,7 +38765,24 @@ var render = function() {
               _c("h2", [_vm._v(_vm._s(_vm.carter.length) + " Cart Items")]),
               _vm._v(" "),
               _c("ol", { staticClass: "breadcrumb highlightlinks" }, [
-                _vm._m(0),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticStyle: { cursor: "pointer" },
+                      on: {
+                        click: function($event) {
+                          return _vm.home()
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                            Home\n                        "
+                      )
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
                 _c(
                   "li",
@@ -38789,7 +38819,7 @@ var render = function() {
                   "table",
                   { staticClass: "table shop_table cart cart-table" },
                   [
-                    _vm._m(1),
+                    _vm._m(0),
                     _vm._v(" "),
                     _c(
                       "tbody",
@@ -39014,16 +39044,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "index.html" } }, [
-        _vm._v("\n                            Home\n                        ")
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -39278,7 +39298,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         cart: 'shop/cart',
         total: 'shop/cartTotal'
     })),
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])({
+    methods: _extends({
+        home: function home() {
+            window.location = window.location.origin;
+        }
+    }, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])({
         getCart: 'shop/getCart',
         userData: 'shop/userData'
     }), {
@@ -39287,12 +39311,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
             //validate users input
             if (!this.form.name || !this.form.phone || !this.form.email || !this.form.address) {
-                alert('All Fields Required');
+                this.$swal('All Fields Required');
                 return;
             }
 
             if (isNaN(this.form.phone) || this.form.phone.length !== 11) {
-                alert('Enter a valid phone number');
+                this.$swal('Enter a valid phone number');
                 return;
             }
 
@@ -39304,13 +39328,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
                 cart: this.cart,
                 context: this
             }).then(function (response) {
-                _this.$router.push({
+                _this.$router.replace({
                     name: 'store-pay',
                     params: {
                         ref: response.data.data.ref
                     }
                 });
-                console.log(response.data);
+                // console.log(response.data)
             }).catch(function (error) {
                 _this.btn.state = !_this.btn.state;
                 _this.btn.text = 'Place Order';
@@ -39347,7 +39371,20 @@ var render = function() {
               _c("h2", [_vm._v("Checkout")]),
               _vm._v(" "),
               _c("ol", { staticClass: "breadcrumb highlightlinks" }, [
-                _vm._m(0),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      staticStyle: { cursor: "pointer" },
+                      on: { click: _vm.home }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                Home\n                            "
+                      )
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
                 _c(
                   "li",
@@ -39384,7 +39421,7 @@ var render = function() {
                   "col-sm-7 col-md-8 col-lg-9 col-sm-push-5 col-md-push-4 col-lg-push-3"
               },
               [
-                _vm._m(1),
+                _vm._m(0),
                 _vm._v(" "),
                 _c("h2", [_vm._v("Personal Information")]),
                 _vm._v(" "),
@@ -39396,7 +39433,7 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "form-group validate-required" }, [
-                      _vm._m(2),
+                      _vm._m(1),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-9" }, [
                         _c("input", {
@@ -39434,7 +39471,7 @@ var render = function() {
                         attrs: { id: "billing_last_name_field" }
                       },
                       [
-                        _vm._m(3),
+                        _vm._m(2),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-9" }, [
                           _c("input", {
@@ -39467,7 +39504,7 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _c("div", { staticClass: "form-group validate-required" }, [
-                      _vm._m(4),
+                      _vm._m(3),
                       _vm._v(" "),
                       _c("div", { staticClass: "col-sm-9" }, [
                         _c("input", {
@@ -39506,7 +39543,7 @@ var render = function() {
                         attrs: { id: "billing_address_fields" }
                       },
                       [
-                        _vm._m(5),
+                        _vm._m(4),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-sm-9" }, [
                           _c("textarea", {
@@ -39591,7 +39628,7 @@ var render = function() {
                           "table shop_table shop-checkout-review-order-table"
                       },
                       [
-                        _vm._m(6),
+                        _vm._m(5),
                         _vm._v(" "),
                         _c(
                           "tbody",
@@ -39654,18 +39691,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "index.html" } }, [
-        _vm._v(
-          "\n                                Home\n                            "
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

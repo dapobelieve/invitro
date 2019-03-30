@@ -24,9 +24,9 @@
                                         <div class="teaser_icon size_small border_icon highlight2 rounded"> <i class="rt-icon2-pen"></i> </div>
                                     </div>
                                     <div class="media-body media-middle">
-                                        <h4>0 (800) 123 4567</h4>
+                                        <h4>{{ config('site.site.phone') }}</h4>
                                         <p class="greylinks fontsize_12"> 
-                                            <a href="mailto:pharmacom@example.com">info@invitrofertilizationacademy.org</a> 
+                                            <a href="mailto:pharmacom@example.com">{{ config('site.site.email') }}</a>
                                         </p>
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="media-body media-middle">
                                         <h4>482 Address Street</h4>
-                                        <p class="greylinks fontsize_12"> Address City, KS 66223 </p>
+                                        <p class="greylinks fontsize_12"> {{ config('site.site.address') }} </p>
                                     </div>
                                 </div>
                             </div>
