@@ -7,6 +7,12 @@ import {
     StoreDetails
 } from "../components/store";
 
+import {
+    TrainIndex,
+    TrainHome,
+    TrainDetails
+} from "../components/training";
+
 export default [
     {
         path: '/products',
@@ -36,6 +42,22 @@ export default [
                 path: '/payment/:ref',
                 component: StorePayment,
                 name: 'store-pay'
+            }
+        ]
+    },
+    {
+        path: '/trainings',
+        component: TrainIndex,
+        children: [
+            {
+                path: '',
+                component: TrainHome,
+                name: 'train-home'
+            },
+            {
+                path: '/details/:slug',
+                component: TrainDetails,
+                name: 'train-details',
             }
         ]
     }

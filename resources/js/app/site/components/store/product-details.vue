@@ -4,13 +4,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 text-center">
-                        <h2>Single Product</h2>
+                        <h2>{{ product.name }}</h2>
                         <ol class="breadcrumb highlightlinks">
-                            <li> <a href="index.html">
-                                Home
-                            </a> </li>
+                            <li>
+                                <a href="">
+                                    Home
+                                </a>
+                            </li>
                             <li> <a href="#">Shop</a> </li>
-                            <li class="active">Single Product</li>
+                            <li class="active">{{ product.name }}</li>
                         </ol>
                     </div>
                 </div>
@@ -23,7 +25,7 @@
                         <div class="with_border with_padding ">
                             <div  itemscope="" itemtype="http://schema.org/Product" class="product type-product row">
                                 <div class="col-md-6">
-                                    <div class="images">
+                                    <div v-if="product.image !== null" class="images">
                                         <span class="onsale">Sale!</span>
                                         <img
                                             :src="getImage(product.image)"

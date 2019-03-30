@@ -1,7 +1,8 @@
 <?php
-Route::get('/', function () {
-    return view('pages.home');
-})->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+
+
+
 
 Route::get('trainings', function () {
     return view('pages.training');

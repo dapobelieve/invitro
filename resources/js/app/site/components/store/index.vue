@@ -1,5 +1,7 @@
 <template>
     <div class="store">
-        <router-view></router-view>
+        <transition name="fadeLeft">
+            <router-view></router-view>
+        </transition>
     </div>
 </template>

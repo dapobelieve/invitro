@@ -1,9 +1,9 @@
-<section id="about" class="ls section_padding_top_150 section_padding_bottom_150">
+<section id="about" class="ls section_padding_top_100 section_padding_bottom_150">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 text-center">
                             <h2 class="section_header"> Welcome to Our Site! </h2>
-                            <p>We welcome applications from recent medical school graduates, residents, physicians, and scientists interested in conducting cutting-edge basic science or clinical research</p>
+                            <p>We welcome applications from recent medical school graduates, nurses, doctors, physicians, and embryologists interested in conducting cutting-edge basic science or clinical research</p>
                         </div>
                     </div>
                     <div class="row columns_margin_bottom_20">
@@ -12,7 +12,9 @@
                                 <div class="teaser_icon size_big highlight"> <i class="rt-icon2-user"></i> </div>
                                 <h4 class="topmargin_20 hover-color2"><a href="team.html">Pharma Team</a></h4>
                                 <p class="content-3lines-ellipsis">Company was founded by scientists dedicated to create new therapeutics.</p>
-                                <p class="topmargin_30 bottommargin_0"> <a href="team.html" class="theme_button color2 inverse min_width_button">Our Team</a> </p>
+                                <p class="topmargin_30 bottommargin_0">
+                                    <a href="team.html" class="theme_button color2 inverse min_width_button">Our Team</a>
+                                </p>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">

@@ -23,6 +23,15 @@ class TrainingController extends Controller
         ]);
     }
 
+    public function getTraining(Training $training)
+    {
+        return response()->json([
+            'data' => [
+                'training' => Training::with('materials')->where('id', $training->id)->first(),
+            ]
+        ]);
+    }
+
 
     public function save(TrainingRequest $request)
     {
@@ -50,7 +59,7 @@ class TrainingController extends Controller
         $training = Training::firstOrCreate([
             'title' => $request->title,
             'price' => $request->cost,
-            'image' => is_null($trainImage) ? '' : 'images/'.$trainImage,
+            'image' => is_null($trainImage) ? '' : $trainImage.'.'.$extension,
             'content' => $request->details,
             'slug'    => str_slug($request->title).'-'.str_random(5)
         ]);
