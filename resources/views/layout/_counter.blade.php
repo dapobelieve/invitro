@@ -10,25 +10,21 @@
                         <div class="col-md-20 col-sm-4 col-xs-6 col-xxs-12">
                             <div class="teaser text-center">
                                 <h3 class="counter" data-from="0" data-to="893" data-speed="2100">0</h3>
-                                <p>Medicament Invented</p>
+                                <p>Happy Families</p>
                             </div>
                         </div>
                         <div class="col-md-20 col-sm-4 col-xs-6 col-xxs-12">
                             <div class="teaser text-center">
                                 <h3 class="counter" data-from="0" data-to="75" data-speed="2100">0</h3>
-                                <p>Awards Winned</p>
+                                <p>Trained Students</p>
                             </div>
                         </div>
                         <div class="col-md-20 col-sm-6 col-xs-6 col-xxs-12">
                             <div class="teaser text-center">
-                                <h3 class="counter-wrap"> <span class="counter" data-from="0" data-to="673" data-speed="2100"></span> <span class="counter-add">k</span> </h3>
-                                <p>Happy Clients</p>
-                            </div>
-                        </div>
-                        <div class="col-md-20 col-sm-6 col-xs-12">
-                            <div class="teaser text-center">
-                                <h3 class="counter" data-from="0" data-to="751" data-speed="2100">0</h3>
-                                <p>Pharmacies Partners</p>
+                                <h3 class="counter-wrap">
+                                    <span class="counter" data-from="0" data-to="1063" data-speed="2100"></span>
+                                    <span class="counter-add"></span> </h3>
+                                <p>Products Sold</p>
                             </div>
                         </div>
                     </div>

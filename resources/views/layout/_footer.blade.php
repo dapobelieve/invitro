@@ -38,9 +38,9 @@
                                 </div>
                                 <div class="media">
                                     <div class="media-left rightpadding_10"> <i class="fa fa-pencil highlight" aria-hidden="true"></i> </div>
-                                    <div class="media-body highlight2links"> <a href="mailto:pharmacom@example.com">
+                                    <div class="media-body highlight2links">
                                             {{ config('site.site.email') }}
-                                        </a> </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

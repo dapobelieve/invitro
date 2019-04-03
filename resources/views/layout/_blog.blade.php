@@ -1,4 +1,4 @@
-<section id="blog" class="ls  section_padding_bottom_130">
+<section id="blog" class="ls  section_padding_bottom_100">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
