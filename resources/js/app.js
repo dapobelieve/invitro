@@ -14,8 +14,6 @@ import VueHead from 'vue-head'
 
 
 Vue.use(VueHead)
-
-
 Vue.use(VueSweetalert2);
 // Vue.use(Datetime);
 
@@ -26,6 +24,8 @@ Vue.component('adminer', require('./app/admin/index.vue'));
 //site related spa
 Vue.component('siter', require('./app/site/index.vue'));
 
+
+//
 
 
 const app = new Vue({

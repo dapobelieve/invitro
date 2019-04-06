@@ -1,9 +1,6 @@
 <?php
 Route::get('/', 'HomeController@index')->name('home');
 
-
-
-
 Route::get('trainings', function () {
     return view('pages.training');
 })->name('trainings');
@@ -11,6 +8,10 @@ Route::get('trainings', function () {
 Route::get('shop', function() {
     return view('pages.store');
 })->name('store');
+
+Route::get('about-us', function() {
+    return view('pages.about');
+})->name('about');
 
 Route::get('contact', function() {
     return view('pages.contact');

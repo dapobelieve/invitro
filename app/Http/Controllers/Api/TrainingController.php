@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\ApplicationRequest;
+use App\Models\Applicant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Training;
@@ -14,7 +16,7 @@ class TrainingController extends Controller
 {
     public function index(Request $request)
     {
-        $tr = Training::with('materials')->latest()->get();
+        $tr = Training::with('getApplicationsCount')->latest()->get();
 
         return response()->json([
             'data' => [
@@ -117,6 +119,73 @@ class TrainingController extends Controller
 //        sleep(4);
         return response()->json([
             'data' => $training,
+        ]);
+    }
+
+    public function register(ApplicationRequest $request)
+    {
+        $training = Training::find($request->training);
+
+        if(!$training) {
+            return response()->json([
+                'status' => 'False',
+                'message' => 'Training not found'
+            ], 404);
+        }
+
+        //check if user has registered before
+
+        //register user
+        $applicant = $training->applications()->firstOrCreate([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'occupation' => $request->occupation,
+            'ip' => $request->ip(),
+            'address' => $request->address,
+            'reference' => 'IVFA-'.str_random(7)
+        ]);
+
+        //create payment record
+        $this->createPaymentDetails($applicant, $training);
+
+
+        /**
+         * fire event to send a mail here
+         * to applicant with application details
+         */
+
+
+        return response()->json([
+            'data' => [
+                'application_ref' => $applicant->reference
+            ],
+            'message' => 'Details of your registration has been sent to your mail'
+        ]);
+    }
+
+    private function createPaymentDetails(Applicant $applicant, Training $training)
+    {
+        $applicant->payment()->create([
+            'trxn_ref' => $applicant->reference,
+            'amount'   => (int) $training->price
+        ]);
+    }
+
+    public function delete($id)
+    {
+        $training = Training::find($id);
+
+        if(!$training) {
+            return response()->json([
+                'status' => 'False',
+                'message' => 'Training not found'
+            ], 404);
+        }
+
+        $training->delete();
+        return response()->json([
+            'message' => 'Item Deleted'
         ]);
     }
 

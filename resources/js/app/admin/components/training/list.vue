@@ -2,18 +2,10 @@
     <div class="list-training">
         <div class="row">
             <div class="col-xs-12">
-
-                <!--<div class="alert alert-info">-->
-                    <!--Welcome in the <strong>Unicorn Admin Theme</strong>. Don't forget to check all the pages!-->
-                    <!--<a href="#" data-dismiss="alert" class="close">×</a>-->
-                <!--</div>-->
                 <div class="widget-box">
                     <div class="widget-title">
                         <span class="icon"><i class="fa fa-signal"></i></span>
                         <h5>Current Trainngs</h5>
-                        <!--<div class="buttons">-->
-                            <!--<a href="#" class="btn"><i class="fa fa-refresh"></i> <span class="text">Update stats</span></a>-->
-                        <!--</div>-->
                     </div>
                     <div class="widget-content">
                         <loader v-if="!data.trainings"></loader>
@@ -32,13 +24,17 @@
                                 <td>{{ index + 1 }}</td>
                                 <td>{{ data.title }}</td>
                                 <td>&#8358{{ (data.price).toLocaleString() }}</td>
-                                <td>45</td>
+                                <td v-if="data.get_applications_count.length">
+                                    {{ data.get_applications_count[0]["count"] }}
+                                </td>
+                                <td v-else> 0 </td>
                                 <td>
+                                    <button class="btn btn-success btn-xs">Applicants</button>
                                     <router-link
                                             :to="{name: 'train-detail', params:{id: data.id}}"
                                             class="btn btn-primary btn-xs">Details
                                     </router-link>
-                                    <button type="submit" class="btn btn-danger btn-xs">Delete</button>
+                                    <button @click="deleteItem(data.id)" class="btn btn-danger btn-xs">Delete</button>
                                 </td>
                             </tr>
 
@@ -75,7 +71,26 @@
                 .catch(error => {
 
                 })
-            }
+            },
+            deleteItem(id) {
+                this.$swal.fire({
+                    title: 'Are you sure you want to delete this item?',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+
+                })
+                    .then((result) => {
+                        axios.delete(`api/delete-training/${id}`)
+                            .then(response => {
+                                // Bus.$emit('item-deleted');
+                                this.data.trainings = this.data.trainings.filter(item => {
+                                    return item.id !== id;
+                                })
+                                this.$swal(response.data.message);
+                            })
+                    })
+            },
         },
         mounted() {
             this.getTrainings();

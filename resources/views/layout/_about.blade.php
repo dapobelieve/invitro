@@ -12,7 +12,8 @@
                                 <div class="teaser_icon size_big highlight"> <i class="rt-icon2-user"></i> </div>
                                 <h4 class="topmargin_20 hover-color2">WorldClass Trainers</h4>
                                 <p class="content-3lines-ellipsis">
-                                    Interesting and Easy learning process from the best in the field.
+                                    Our Trainers are the best in the field with industry wide experience
+
                                 </p>
                                 {{--<p class="topmargin_30 bottommargin_0">--}}
                                     {{--<a href="team.html" class="theme_button color2 inverse min_width_button">Our Team</a>--}}
@@ -21,7 +22,7 @@
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="teaser hover_icon with_padding big-padding with_border rounded text-center with_corner_border">
-                                <div class="teaser_icon size_big highlight"> <i class="rt-icon2-bulb"></i> </div>
+                                <div class="teaser_icon size_big highlight"> <i class="rt-icon2-lab"></i> </div>
                                 <h4 class="topmargin_20 hover-color2">
                                     State of the art Equipments
                                 </h4>
@@ -35,11 +36,13 @@
                         </div>
                         <div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-0">
                             <div class="teaser hover_icon with_padding big-padding with_border rounded text-center">
-                                <div class="teaser_icon size_big highlight"> <i class="rt-icon2-paperplane"></i> </div>
+                                <div class="teaser_icon size_big highlight"> <i class="rt-icon2-thermometer"></i> </div>
                                 <h4 class="topmargin_20 hover-color2">
-                                    Pharma Pipeline
+                                    Easy learning Process
                                 </h4>
-                                <p class="content-3lines-ellipsis">Consetetur sadipscing elitr sediam nonumy eirmod tempor invidunt labore magna.</p>
+                                <p class="content-3lines-ellipsis">
+                                    Interesting and Easy learning process from the best in the field.
+                                </p>
 
                             </div>
                         </div>

@@ -27,7 +27,7 @@ class VerificationController extends Controller
 
         if($payment->status === 'PAID') {
             return response()->json([
-                'message' => 'Already Paid'
+                'message' => 'Transaction already Paid for'
             ], 500);
         }
 
@@ -72,8 +72,7 @@ class VerificationController extends Controller
 
         return response()->json([
             'data' => [
-                'name'  => $payment->order->name,
-                'email' => $payment->order->email
+                'details'  => $payment,
             ]
         ]);
     }

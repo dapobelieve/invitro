@@ -1,13 +1,22 @@
 <?php
 
+header("Access-Control-Allow-Origin: http://invitrofertilizationacademy.org, http://www.invitrofertilizationacademy.org/");
+header("Access-Control-Allow-Credentials: true");
+
 /**
  * Site Section
  */
 Route::get('get-training-details/{training}', 'Api\TrainingController@getTraining');
 
+/**
+ * Regiter for training
+ */
+Route::post('training-register', 'Api\TrainingController@register');
+
 
 
 Route::post('create-training', 'Api\TrainingController@save');
+Route::delete('delete-training/{id}', 'Api\TrainingController@delete');
 
 Route::get('all-trainings', 'Api\TrainingController@index');
 

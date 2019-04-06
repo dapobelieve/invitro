@@ -9,7 +9,7 @@
                             <li> <a href="index.html">
                                 Home
                             </a> </li>
-                            <li> <router-link :to="{name: 'store-home'}">Shop</router-link>
+                            <!--<li> <router-link :to="{name: 'store-home'}">Shop</router-link>-->
                                 <!--<a href="#"></a> </li>-->
                             <li class="active">Payment</li>
                         </ol>
@@ -24,8 +24,8 @@
                     <div v-else class="place-order">
                         <div class="pay-amount">
                             <span class="big-price amount grey">
-                            &#8358{{ formatPrice }}
-                        </span>
+                                &#8358{{ formatPrice }}
+                            </span>
                         </div>
                         <div class="pay-btn item">
                             <input type="submit"
@@ -41,7 +41,7 @@
                 <div class="row" v-else>
                     <div class="info">
                         <p class="big-price">Payment Successful.</p>
-                        <p class="big-price">A mail has been sent to {{ info.email }}</p>
+                        <!--<p class="big-price">A mail has been sent to {{ info.email }}</p>-->
                     </div>
 
                 </div>
@@ -135,7 +135,7 @@
             },
             payWithPaystack() {
                 this.btn.state = true;
-                this.btn.text = 'processing...';
+                this.btn.text = 'Processing...';
 
                 //only after script has loaded
                 this.scriptLoaded.then(() => {
@@ -198,24 +198,26 @@
                     })
                 })
                 .catch(error => {
-                    this.$swal(error.response.data.message)
+                    alert(error.response.data.message)
                 });
         }
     }
 </script>
 
-<style>
+<style scoped>
     .place-order, .info {
-        display: grid;
+        display: flex;
         justify-content: center;
         align-items: center;
-        grid-gap: 30px;
+        flex-direction: column
+        /*grid-gap: 30px;*/
     }
     .big-price {
-        font-weight: 50px;
-        font-size: 70px;
+        font-weight: 500;
+        font-size: 50px;
     }
     .pay-btn {
+        margin-top: .8em;
         justify-self: center;
     }
 

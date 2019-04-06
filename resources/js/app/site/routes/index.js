@@ -10,7 +10,8 @@ import {
 import {
     TrainIndex,
     TrainHome,
-    TrainDetails
+    TrainDetails,
+    TrainRegister
 } from "../components/training";
 
 export default [
@@ -58,6 +59,11 @@ export default [
                 path: '/details/:slug',
                 component: TrainDetails,
                 name: 'train-details',
+            },
+            {
+                path: '/register/:slug',
+                component: TrainRegister,
+                name: 'train-register'
             }
         ]
     }

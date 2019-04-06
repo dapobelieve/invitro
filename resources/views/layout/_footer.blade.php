@@ -30,7 +30,9 @@
                                 <h4 class="widget-title">Contact Us</h4>
                                 <div class="media">
                                     <div class="media-left rightpadding_10"> <i class="fa fa-map-marker highlight" aria-hidden="true"></i> </div>
-                                    <div class="media-body"> {{ config('site.site.address') }} </div>
+                                    <div class="media-body"> {{ config('site.site.address') }}, <br>
+                                        {{ config('site.site.city') }}
+                                    </div>
                                 </div>
                                 <div class="media">
                                     <div class="media-left rightpadding_10"> <i class="fa fa-phone highlight" aria-hidden="true"></i> </div>

@@ -3,7 +3,7 @@
                     <div class="row">
                         <div class="col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 text-center">
                             <div class="background_cover contact-form-wrapper">
-                                <h2 class="section_header">Contact Form</h2>
+                                <h2 class="section_header">Drop us a message or make an enquiry</h2>
                                 <form class="contact-form row" method="post" action="http://webdesign-finder.com/html/pharma/">
                                     <div class="col-sm-6">
                                         <div class="contact-form-name"> <label for="name">Full Name <span class="required">*</span></label> <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control text-center" placeholder="Name"> </div>

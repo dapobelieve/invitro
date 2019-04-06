@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 text-center">
-                        <h2>Trainings</h2>
+                        <h2>Latest Trainings</h2>
                         <ol class="breadcrumb highlightlinks">
                             <li> <a href="index.html">
                                 Home
@@ -17,7 +17,7 @@
         </section>
         <section class="ls section_padding_top_100 section_padding_bottom_130">
             <div class="container">
-                <div  class="isotope_container isotope row masonry-layout columns_margin_bottom_20">
+                <div  class="training row masonry-layout columns_margin_bottom_20">
                     <span v-for="i in Math.ceil(datas.length / 3)">
                         <training v-for="data in datas.slice((i - 1) * 3, i * 3)" :data="data"  :key="data.id"></training>
                     </span>

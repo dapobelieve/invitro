@@ -15,8 +15,11 @@
                             <li class="{{ Request::is('shop') ? 'active' : '' }}">
                                 <a href="{{ url('shop#/products') }}">Store</a>
                             </li>
+                            <li class="{{ Request::is('about-us') ? 'active' : '' }}">
+                                <a href="{{ route('about') }}">About Us</a>
+                            </li>
                             <li class="{{ Request::is('contact') ? 'active' : '' }}">
-                                <a href="{{ route('contact') }}">Contacts</a>
+                                <a href="{{ route('contact') }}">Contact Us</a>
                             </li>
                             <!-- eof contacts -->
                         </ul>

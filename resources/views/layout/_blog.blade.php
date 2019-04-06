@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h2 class="section_header text-center">Recent Trainings</h2>
+                <h2 class="section_header text-center">Latest Trainings</h2>
                 <div class="row">
                     <div class="col-md-6">
                         @foreach($courses as $course)

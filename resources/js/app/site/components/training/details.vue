@@ -62,8 +62,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="regiter-section">
-                            <a href="#" class="theme_button color1"><i class="rt-icon2-star-outline"></i> Register Now</a>
+                        <div class="regiter-section" v-if="data.slug">
+                            <router-link :to="{name: 'train-register', params:{slug: data.slug}}" class="theme_button color1"><i class="rt-icon2-star-outline"></i> Register Now</router-link>
                         </div>
                         <!-- eof .tab-content -->
                     </div>
@@ -89,6 +89,10 @@
         methods: {
             getImage ()
             {
+                if(this.data.image == "") {
+                    return `images/crop/train.jpg`
+                }
+
                 return `images/crop/${this.data.image}`
             },
             home ()

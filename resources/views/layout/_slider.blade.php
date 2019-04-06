@@ -13,8 +13,8 @@
                                         <p style="font-weight: 500;"> Our aim is to provide the highest standard of basic
                                             and advanced training <br> in all aspects of IVF
                                             here in Nigeria.
-                                        </p> <a href="#" class="theme_button color2 inverse margin_0">
-                                            Discover Now
+                                        </p> <a href="{{ route('about') }}" class="theme_button color2 inverse margin_0">
+                                            Learn More
                                         </a> <span class="bottom_corners"></span> </div>
                                 </div>
                                 <!-- eof .slide_description -->
@@ -35,7 +35,7 @@
                                 <div class="slide_description">
                                     <div class="intro-layer with_corner_border with_padding huge-padding" data-animation="slideExpandUp">
                                         <h5 class="thin"> Basic and Advanced courses for</h5>
-                                        <h2 class="highlight"> IVF specialist, Embryologist, Andrologist &<br> IVF nurses </h2>
+                                        <h2 class="highlight"> IVF specialist, Embryologist, <br> Andrologist & IVF nurses </h2>
                                         <p>
                                             Our mission is to leverage our expertise, state
                                             of the art equipments,<br>serene environment to provide world class IVF training
