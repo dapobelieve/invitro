@@ -11,6 +11,7 @@ use App\Http\Requests\TrainingRequest;
 use Cloudder;
 use Storage;
 use Image;
+use App\Events\ApplicationCreatedEvent;
 
 class TrainingController extends Controller
 {
@@ -154,6 +155,7 @@ class TrainingController extends Controller
          * fire event to send a mail here
          * to applicant with application details
          */
+//        event(new ApplicationCreatedEvent($applicant->load('training')));
 
 
         return response()->json([

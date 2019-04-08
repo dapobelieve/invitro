@@ -38,7 +38,7 @@ Route::post('place-order', 'Api\StoreController@placeOrder');
 Route::get('verify-transaction-ref/{trxnref}', 'Api\VerificationController@verifyTrxRef');
 
 // verify if payment was truly made on paystack
-Route::get('verify-payment/{payment}/{payref}', 'Api\VerificationController@verifyPaymentRef');
+Route::get('verify-payment/{payment}/{payref}/{type}', 'Api\VerificationController@verifyPaymentRef');
 
 
 

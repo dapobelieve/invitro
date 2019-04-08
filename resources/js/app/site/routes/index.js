@@ -42,7 +42,7 @@ export default [
             {
                 path: '/payment/:ref',
                 component: StorePayment,
-                name: 'store-pay'
+                name: 'store-pay',
             }
         ]
     },

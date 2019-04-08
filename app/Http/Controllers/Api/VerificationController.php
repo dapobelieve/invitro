@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
 use GuzzleHttp\Client;
+use App\Events\ApplicationCreatedEvent;
 
 
 class VerificationController extends Controller
@@ -46,7 +47,7 @@ class VerificationController extends Controller
      * verify payment from paystack
      * @return \Illuminate\Http\JsonResponse
      */
-    public function  verifyPaymentRef(Payment $payment, $paymentRef)
+    public function  verifyPaymentRef(Payment $payment, $paymentRef, $type)
     {
         $client = new Client();
 
@@ -67,7 +68,12 @@ class VerificationController extends Controller
             ]);
         }
 
+
         //send email here
+        if($type === 'training') {
+            $applicant = $payment->applicant;
+            event(new ApplicationCreatedEvent($applicant->load('training')));
+        }
 
 
         return response()->json([

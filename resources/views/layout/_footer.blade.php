@@ -2,11 +2,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4 col-sm-6">
-                            <div class="widget widget_text">
-                                <a href="index.html" class="logo vertical_logo bottommargin_20">
-                                    <img src="/assets/images/logo-light.png" alt="">
-                                </a>
-                                <p>Lorem ipsum dlor amet, consetetur sadipscing esed dia nonumy eirmod tempor invidunt.</p>
+                            <div class="widget widget_text topmargin_25">
+                                <h4 class="widget-title">About Us</h4>
+                                <p>Invitro-fertilization academy offers a range of courses, <br>
+                                    training and practical workshops geared to employers and employees within the IVF Industry.</p>
                                 <p class="darklinks">
                                     <a class="social-icon soc-facebook" href="#" title="Facebook"></a>
                                     <a class="social-icon soc-twitter" href="#" title="Twitter"></a>
@@ -15,7 +14,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6 text-center">
+                        <div class="col-md-4 col-sm-6">
                             <div class="widget widget_instagram topmargin_25">
                                 <h4 class="widget-title">Useful Links</h4>
                                 <ul style="list-style: none; display: flex; flex-direction: column; justify-content: space-evenly">

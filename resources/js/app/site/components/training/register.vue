@@ -41,6 +41,9 @@
                                 </label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" v-model="form.email" placeholder="Email Address" value="">
+                                    <span v-if="errors.email" class="has-error">
+                                        {{ errors.email[0] }}
+                                    </span>
                                 </div>
                             </div>
                             <div class="form-group validate-required">
@@ -50,6 +53,9 @@
                                 </label>
                                 <div class="col-sm-9">
                                     <input type="text" v-model="form.phone" class="form-control " placeholder="Phone Number" value="">
+                                    <span v-if="errors.phone" class="has-error">
+                                        {{ errors.phone[0] }}
+                                    </span>
                                 </div>
                             </div>
                             <div class="form-group validate-required">
@@ -155,23 +161,32 @@
                     .then(response => {
                         //set user details so it can be usefull on the payment component
                         localStorage.setItem('userData', JSON.stringify(this.form));
-                        this.form = {}
+                        // this.form = {}
                         this.$swal({
                             title: 'Registration Successful',
-                            text: response.data.message,
+                            // text: response.data.message,
                             type: 'success',
                             // showConfirmButton: false
                         })
+                        this.btn.state = !this.btn.state;
 
-                        this.$router.replace({
+
+                        this.$router.push({
                             name: 'store-pay',
                             params: {
                                 ref: response.data.data.application_ref
+                            },
+                            query: {
+                                type: 'training'
                             }
                         });
                     })
                     .catch(error => {
-                        console.log(error.response.data)
+                        window.scrollTo(40, 0);
+                        this.btn.text = 'Register'
+                        this.btn.state = !this.btn.state;
+                        this.errors = error.response.data.errors;
+                        // console.log(error.response.data)
                     })
 
             }
@@ -192,5 +207,8 @@
     .place-order {
         display: flex;
         justify-content: center
+    }
+    .has-error {
+        color: red
     }
 </style>

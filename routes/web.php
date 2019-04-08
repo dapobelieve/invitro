@@ -17,6 +17,8 @@ Route::get('contact', function() {
     return view('pages.contact');
 })->name('contact');
 
+Route::post('mail-message', 'ContactController@send')->name('mail-message');
+
 
 /**
  * Admin section
@@ -34,3 +36,7 @@ Route::group(['prefix' => 'dashboard'], function () {
         return view('admin.store');
     })->name('admin-store');
 });
+
+//Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

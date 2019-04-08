@@ -95,11 +95,13 @@
         methods: {
             showAlertmessage(message) {
                 this.$swal({
-                    text: message
+                    title: message,
+                    text: 'We sent you a mail',
+                    type: 'success'
                 })
             },
             verifyTransaction (ref) {
-                axios.get('api/verify-payment/'+this.id+'/'+ref)
+                axios.get('api/verify-payment/'+this.id+'/'+ref+'/'+this.$route.query.type)
                     .then(response => {
                         this.paySuccess = true;
                         this.clearData();
@@ -181,6 +183,7 @@
         },
         mounted ()
         {
+            console.log(this.$route);
             window.scrollTo(20, 0);
             if (this.embed) {
                 this.payWithPaystack()

@@ -203,6 +203,9 @@
                         name: 'store-pay',
                         params: {
                             ref: response.data.data.ref
+                        },
+                        query: {
+                            type: 'shop'
                         }
                     });
                     // console.log(response.data)
@@ -211,7 +214,7 @@
                     this.btn.state = !this.btn.state;
                     this.btn.text = 'Place Order';
                     this.errors = error.response.data.errors
-                    console.log(error.response)
+                    // console.log(error.response)
                 })
             }
         },
