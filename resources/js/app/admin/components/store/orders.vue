@@ -33,8 +33,10 @@
                                     <td v-if="data.payment">&#8358{{ (data.payment.amount).toLocaleString() }}</td>
                                     <td v-else>Not Paid</td>
                                     <td>{{ data.items.length }}</td>
-                                    <td>{{ formatDate(data.payment.updated_at) }}</td>
+                                    <td v-if="data.payment">{{ formatDate(data.payment.updated_at) }}</td>
+                                    <td v-else>N/A</td>
                                     <td v-if="data.payment"> <strong>{{ data.payment.payment_ref }} </strong></td>
+                                    <td v-else>N/A</td>
                                     <td>
                                         <router-link
                                                 :to="{name: 'order-details', params:{ref: data.ref}}"

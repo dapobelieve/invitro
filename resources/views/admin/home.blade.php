@@ -12,15 +12,15 @@
         <a href="#" class="current">Dashboard</a>
     </div>
     <div class="container-fluid">
-        @include('admin.layout.stats')
+        {{--@include('admin.layout.stats')--}}
         <br />
 
         <div class="row">
             <div class="col-xs-12">
-                <div class="alert alert-info">
-                    Welcome in the <strong>Unicorn Admin Theme</strong>. Don't forget to check all the pages!
-                    <a href="#" data-dismiss="alert" class="close">×</a>
-                </div>
+                {{--<div class="alert alert-info">--}}
+                    {{--Welcome in the <strong>Unicorn Admin Theme</strong>. Don't forget to check all the pages!--}}
+                    {{--<a href="#" data-dismiss="alert" class="close">×</a>--}}
+                {{--</div>--}}
                 <div class="widget-box">
                     <div class="widget-title">
                         <span class="icon"><i class="fa fa-signal"></i></span>

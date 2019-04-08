@@ -35510,6 +35510,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -35919,13 +35921,15 @@ var render = function() {
                               _vm._v(" "),
                               _c("td", [_vm._v(_vm._s(data.items.length))]),
                               _vm._v(" "),
-                              _c("td", [
-                                _vm._v(
-                                  _vm._s(
-                                    _vm.formatDate(data.payment.updated_at)
-                                  )
-                                )
-                              ]),
+                              data.payment
+                                ? _c("td", [
+                                    _vm._v(
+                                      _vm._s(
+                                        _vm.formatDate(data.payment.updated_at)
+                                      )
+                                    )
+                                  ])
+                                : _c("td", [_vm._v("N/A")]),
                               _vm._v(" "),
                               data.payment
                                 ? _c("td", [
@@ -35935,7 +35939,7 @@ var render = function() {
                                       )
                                     ])
                                   ])
-                                : _vm._e(),
+                                : _c("td", [_vm._v("N/A")]),
                               _vm._v(" "),
                               _c(
                                 "td",

@@ -23,7 +23,7 @@ Route::post('mail-message', 'ContactController@send')->name('mail-message');
 /**
  * Admin section
  */
-Route::group(['prefix' => 'dashboard'], function () {
+Route::group(['prefix' => 'dashboard','middleware' => 'auth'], function () {
     Route::get('home', function() {
         return view('admin.home');
     })->name('admin');
@@ -37,6 +37,6 @@ Route::group(['prefix' => 'dashboard'], function () {
     })->name('admin-store');
 });
 
-//Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+
