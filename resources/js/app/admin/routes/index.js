@@ -2,7 +2,8 @@ import {
     TrainingHome,
     TrainingList,
     TrainingCreate,
-    TrainingDetails
+    TrainingDetails,
+    TrainingApplicants
 } from '../components/training/'
 
 import {
@@ -33,6 +34,11 @@ export default [
                 path: 'training-details/:id',
                 component: TrainingDetails,
                 name: 'train-detail'
+            },
+            {
+                path: '/training-applicants/:id',
+                component: TrainingApplicants,
+                name: 'train-app'
             }
 
         ]

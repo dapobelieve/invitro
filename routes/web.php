@@ -9,6 +9,10 @@ Route::get('shop', function() {
     return view('pages.store');
 })->name('store');
 
+Route::get('gallery', function() {
+    return view('pages.gallery');
+})->name('gallery');
+
 Route::get('about-us', function() {
     return view('pages.about');
 })->name('about');

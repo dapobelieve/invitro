@@ -7,10 +7,12 @@ use App\Http\Controllers\Controller;
 use App\Models\{Store, Order};
 use App\Http\Requests\StoreRequest;
 use Image;
+use App\Http\Traits\Upload;
 
 
 class ProductController extends Controller
 {
+    use Upload;
     public function index()
     {
         $products = Store::count(); //get their orders or not ??
@@ -40,6 +42,27 @@ class ProductController extends Controller
         $storeImage = null;
         //if hasImage process it
         if ($request->hasFile('image')) {
+            try {
+                    $material = Cloudder::upload($file->path(), $file->getClientOriginalName(), [
+                        'folder' => 'ivf-store-images',
+                        'quality' => 50,
+                        'height' => 280,
+                        'width' => 360,
+                        'timeout' => 3600
+                    ]);
+
+                    if ($material){
+                        $training->materials()->create([
+                            'material' => json_encode(Cloudder::getResult()),
+                        ]);
+                    }
+
+                }catch (\Exception $e) {
+                    return response()->json([
+                        'data' => [],
+                        'message' => $e->getMessage()
+                    ], 500);
+                }
             $image = $request->file('image');
             $extension = $image->getClientOriginalExtension();
             $storeImage = uniqid();
@@ -72,8 +95,6 @@ class ProductController extends Controller
             ],
             'message' => 'Added Successfully'
         ]);
-
-
     }
 
     public function delete($id)
@@ -123,11 +144,13 @@ class ProductController extends Controller
             Image::make($image)->resize(360, 280, function ($con) {
                 $con->aspectRatio();
             })->save($cropPath);
+
+            $product->image = $storeImage.".".$extension;
+            $product->save();
         }
 
         $product->update([
             'name' => $request->name,
-            'image' => $storeImage == '' ? null : $storeImage.".".$extension,
             'price' => $request->price,
             'details' => $request->details
         ]);

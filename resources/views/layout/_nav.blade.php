@@ -15,6 +15,9 @@
                             <li class="{{ Request::is('shop') ? 'active' : '' }}">
                                 <a href="{{ url('shop#/products') }}">Store</a>
                             </li>
+                            <li class="{{ Request::is('gallery') ? 'active' : '' }}">
+                                <a href="{{ url('gallery') }}">Gallery</a>
+                            </li>
                             <li class="{{ Request::is('about-us') ? 'active' : '' }}">
                                 <a href="{{ route('about') }}">About Us</a>
                             </li>

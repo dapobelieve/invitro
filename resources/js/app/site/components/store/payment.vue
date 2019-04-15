@@ -68,8 +68,8 @@
                 id: null,
                 payObj: {
                     email:  'electrumpharmacie@gmail.com',
-                    psKey: 'pk_test_69b1b79c709b904d905a625ad1926e2020882b7d',
-                    bearer: 'Electrum Pharmacie Services'
+                    psKey: 'pk_live_5db8e0bad45e548980641d23586e1197e463965e',
+                    bearer: 'Androcare Laboratories & Cryobank Limited'
                 },
                 info: {}
             }
@@ -96,7 +96,7 @@
             showAlertmessage(message) {
                 this.$swal({
                     title: message,
-                    text: 'We sent you a mail',
+                    text: 'Please check your mail or spam folder for a mail from us',
                     type: 'success'
                 })
             },

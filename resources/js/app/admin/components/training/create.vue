@@ -20,17 +20,17 @@
                                         <input type="text" v-model="course.title" placeholder="Title" class="form-control input-sm" />
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 col-md-3 col-lg-2 control-label">Cost</label>
-                                    <div class="col-sm-9 col-md-9 col-lg-10">
-                                        <input
-                                                type="number"
-                                                min="1000"
-                                                v-model.numnber="course.cost"
-                                                placeholder="Training Fee"
-                                                class="form-control input-sm" />
-                                    </div>
-                                </div>
+                                <!--<div class="form-group">-->
+                                    <!--<label class="col-sm-3 col-md-3 col-lg-2 control-label">Cost</label>-->
+                                    <!--<div class="col-sm-9 col-md-9 col-lg-10">-->
+                                        <!--<input-->
+                                                <!--type="number"-->
+                                                <!--min="1000"-->
+                                                <!--v-model.numnber="course.cost"-->
+                                                <!--placeholder="Training Fee"-->
+                                                <!--class="form-control input-sm" />-->
+                                    <!--</div>-->
+                                <!--</div>-->
                                 <div class="form-group">
                                     <label class="col-sm-3 col-md-3 col-lg-2 control-label">Display Image</label>
                                     <div class="col-sm-9 col-md-9 col-lg-10">
@@ -187,12 +187,12 @@ export default {
                 return;
             }
 
-            if(isNaN(this.course.cost)) {
-                this.error.message = "Enter a Training fee";
-                this.error.status = true;
-                window.scrollTo(250, 0);
-                return;
-            }
+            // if(isNaN(this.course.cost)) {
+            //     this.error.message = "Enter a Training fee";
+            //     this.error.status = true;
+            //     window.scrollTo(250, 0);
+            //     return;
+            // }
 
             if (!this.course.content) {
                 this.error.message = "Give details of the training";

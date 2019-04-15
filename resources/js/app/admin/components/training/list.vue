@@ -29,11 +29,14 @@
                                 </td>
                                 <td v-else> 0 </td>
                                 <td>
-                                    <button class="btn btn-success btn-xs">Applicants</button>
                                     <router-link
-                                            :to="{name: 'train-detail', params:{id: data.id}}"
-                                            class="btn btn-primary btn-xs">Details
+                                            :to="{name: 'train-app', params:{id: data.id}}"
+                                            class="btn btn-success btn-xs">Applicants
                                     </router-link>
+                                    <!--<router-link-->
+                                            <!--:to="{name: 'train-detail', params:{id: data.id}}"-->
+                                            <!--class="btn btn-primary btn-xs">Details-->
+                                    <!--</router-link>-->
                                     <button @click="deleteItem(data.id)" class="btn btn-danger btn-xs">Delete</button>
                                 </td>
                             </tr>

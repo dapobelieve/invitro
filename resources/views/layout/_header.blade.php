@@ -8,10 +8,6 @@
                             <span class="rightpadding_10">Follow Us:</span>
                             <a class="social-icon color-icon soc-facebook" href="#" title="Facebook"></a>
                             <a class="social-icon color-icon soc-twitter" href="#" title="Twitter"></a>
-                            <a class="social-icon color-icon soc-google"
-                                href="#" title="Twitter"></a>
-                            <a class="social-icon color-icon soc-linkedin" href="#" title="Twitter"></a>
-                            <a class="social-icon color-icon soc-youtube" href="#" title="Youtube"></a>
                         </div>
                     </div>
                 </div>
@@ -21,7 +17,7 @@
                     <div class="row">
                         <div class="col-md-3 text-center text-md-left"> 
                             <a href="{{ route('home') }}" class="logo top_logo">
-                                <img src="/assets/images/new.png" alt="">
+                                <img src="/assets/images/logo.png" alt="">
                             </a> 
                         </div>
                         <div class="col-md-9 text-center text-md-right">

@@ -9,10 +9,10 @@
                             <h4>{{ tCount }}</h4>
                             <span>Trainings Courses</span>
                         </li>
-                        <li>
-                            <h4>1433</h4>
-                            <span>Users Registered</span>
-                        </li>
+                        <!--<li>-->
+                            <!--<h4>1433</h4>-->
+                            <!--<span>Users Registered</span>-->
+                        <!--</li>-->
                     </ul>
                 </div>
             </div>

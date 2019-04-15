@@ -19,7 +19,7 @@ class StoreController extends Controller
 
     public function index()
     {
-        $products = Store::latest()->get();
+        $products = Store::all();
         return response()->json([
             'data' => [
                 'products' => $products

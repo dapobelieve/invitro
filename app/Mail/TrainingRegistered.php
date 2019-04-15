@@ -29,7 +29,7 @@ class TrainingRegistered extends Mailable
      */
     public function build()
     {
-        return $this->from('support@invitrofertilizationacademy.org', 'IVF Academy')
+        return $this->from('no-reply@invitrofertilizationacademy.org', 'IVF Academy')
                     ->subject('IVF Academy - Training Registration')
                     ->view('mail.training');
     }

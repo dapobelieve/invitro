@@ -34,7 +34,8 @@
                         <div class="col-sm-4 to_animate" data-animation="pullDown">
                             <div class="teaser text-center">
                                 <div class="teaser_icon highlight2 size_normal"> <i class="rt-icon2-location2"></i> </div>
-                                <p> PO Box 54378<br> 4321 Your Address,<br> Your City, Your Country </p>
+                                <p> {{ config('site.site.address') }},<br>
+                                    {{ config('site.site.city') }}, {{ config('site.site.country') }}</p>
                             </div>
                         </div>
                         <div class="col-sm-4 to_animate" data-animation="pullDown">
@@ -46,10 +47,13 @@
                     </div>
                     <div class="row topmargin_40">
                         <div class="col-sm-12 to_animate">
-                            <form class="contact-form columns_padding_5" method="post" action="http://webdesign-finder.com/html/pharma/">
+                            <form class="contact-form columns_padding_5" method="POST" action="{{ route('mail-message') }}">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p class="form-group"> <label for="name">Full Name <span class="required">*</span></label> <i class="fa fa-user highlight2" aria-hidden="true"></i> <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="Full Name">                                          </p>
+                                        <p class="form-group">
+                                            <label for="name">Full Name <span class="required">*</span></label>
+                                            <i class="fa fa-user highlight2" aria-hidden="true"></i>
+                                            <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control" placeholder="Full Name">                                          </p>
                                         <p class="form-group"> <label for="email">Email address<span class="required">*</span></label> <i class="fa fa-envelope highlight2" aria-hidden="true"></i> <input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control" placeholder="Email Address">                                           </p>
                                         <p class="form-group"> <label for="subject">Subject<span class="required">*</span></label> <i class="fa fa-flag highlight2" aria-hidden="true"></i> <input type="text" aria-required="true" size="30" value="" name="subject" id="subject" class="form-control" placeholder="Subject">                                          </p>
                                     </div>

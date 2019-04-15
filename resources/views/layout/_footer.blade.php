@@ -4,7 +4,7 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="widget widget_text topmargin_25">
                                 <h4 class="widget-title">About Us</h4>
-                                <p>Invitro-fertilization academy offers a range of courses, <br>
+                                <p>Invitro-fertilization academy offers a range of courses,
                                     training and practical workshops geared to employers and employees within the IVF Industry.</p>
                                 <p class="darklinks">
                                     <a class="social-icon soc-facebook" href="#" title="Facebook"></a>
@@ -18,9 +18,9 @@
                             <div class="widget widget_instagram topmargin_25">
                                 <h4 class="widget-title">Useful Links</h4>
                                 <ul style="list-style: none; display: flex; flex-direction: column; justify-content: space-evenly">
-                                    <li>Store</li>
-                                    <li>Shop</li>
-                                    <li>About Us</li>
+                                    <li><a href="{{ route('gallery') }}}">Gallery</a></li>
+                                    <li><a href="{{ url('shop#/products') }}">Shop</a></li>
+                                    <li><a href="{{ route('about') }}">About Us</a></li>
                                 </ul>
                             </div>
                         </div>

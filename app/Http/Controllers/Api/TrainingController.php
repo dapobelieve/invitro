@@ -41,9 +41,9 @@ class TrainingController extends Controller
         $trainImage = '';
 
         // process training image first
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('cimage')) {
 
-            $image = $request->file('image');
+            $image = $request->file('cimage');
             $extension  = $image->getClientOriginalExtension();
 
             $trainImage = uniqid();
@@ -61,8 +61,8 @@ class TrainingController extends Controller
         //create record
         $training = Training::firstOrCreate([
             'title' => $request->title,
-            'price' => $request->cost,
-            'image' => is_null($trainImage) ? '' : $trainImage.'.'.$extension,
+            'price' => 0,
+            'image' => $trainImage == '' ? '' : $trainImage.'.'.$extension,
             'content' => $request->details,
             'slug'    => str_slug($request->title).'-'.str_random(5)
         ]);
@@ -155,7 +155,7 @@ class TrainingController extends Controller
          * fire event to send a mail here
          * to applicant with application details
          */
-//        event(new ApplicationCreatedEvent($applicant->load('training')));
+        event(new ApplicationCreatedEvent($applicant->load('training')));
 
 
         return response()->json([

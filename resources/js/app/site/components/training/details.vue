@@ -30,11 +30,13 @@
                             <div class="item-content with_top_border">
                                 <div class="media small-teaser">
                                     <div class="media-left media-middle"> <i class="fa fa-map-marker highlight" aria-hidden="true"></i> </div>
-                                    <div class="media-body media-middle"> 3699 Wescam Court, Quincy </div>
+                                    <div class="media-body media-middle">No 1, Segun Adekoya street <br>
+                                        Coker Estate Shasha Akonwonjo Lagos.
+                                    </div>
                                 </div>
                                 <div class="media small-teaser">
                                     <div class="media-left media-middle"> <i class="fa fa-phone highlight" aria-hidden="true"></i> </div>
-                                    <div class="media-body media-middle"> 07069494803 </div>
+                                    <div class="media-body media-middle"> 0818 007 3995 </div>
                                 </div>
                                 <div class="media small-teaser">
                                     <div class="media-left media-middle"> <i class="fa fa-envelope highlight" aria-hidden="true"></i> </div>
@@ -93,7 +95,7 @@
                     return `images/crop/train.jpg`
                 }
 
-                return `images/crop/${this.data.image}`
+                return `images/${this.data.image}`
             },
             home ()
             {

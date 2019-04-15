@@ -12,5 +12,5 @@
     {{--@include('layout._pipeline')--}}
     @include('layout._testimonials')
     @include('layout._contact')
-    @include('layout._partners')
+    {{-- @include('layout._partners') --}}
 @stop

@@ -26,7 +26,7 @@ class TrainingRequest extends FormRequest
         return [
             'title' => 'required|string',
             'details' => 'required',
-            'cost' => 'required',
+//            'cost' => 'required',
             'materials.*' => 'mimetypes:video/mp4,application/pdf|max:10000'
         ];
     }

@@ -6,7 +6,7 @@
                     <div class="col-sm-12 text-center">
                         <h2>Latest Trainings</h2>
                         <ol class="breadcrumb highlightlinks">
-                            <li> <a href="index.html">
+                            <li> <a href="#">
                                 Home
                             </a> </li>
                             <li class="active">Trainings</li>
@@ -17,9 +17,9 @@
         </section>
         <section class="ls section_padding_top_100 section_padding_bottom_130">
             <div class="container">
-                <div  class="training row masonry-layout columns_margin_bottom_20">
+                <div style="display: grid; grid-template-rows: auto;" class="row masonry-layout columns_margin_bottom_20">
                     <span v-for="i in Math.ceil(datas.length / 3)">
-                        <training v-for="data in datas.slice((i - 1) * 3, i * 3)" :data="data"  :key="data.id"></training>
+                        <training  v-for="data in datas.slice((i - 1) * 3, i * 3)" :data="data"  :key="data.id"></training>
                     </span>
                 </div>
             </div>

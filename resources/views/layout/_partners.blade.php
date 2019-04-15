@@ -2,7 +2,8 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="owl-carousel partners-carousel" data-responsive-lg="9" data-responsive-md="6" data-responsive-sm="4" data-responsive-xs="2" data-nav="false" data-dots="false" data-center="true" data-loop="true"> <a href="#">
+                            <div class="owl-carousel partners-carousel" data-responsive-lg="9" data-responsive-md="6" data-responsive-sm="4" data-responsive-xs="2" data-nav="false" data-dots="false" data-center="true" data-loop="true"> 
+                    <a href="#">
                         <img src="/assets/images/partners/01.png" alt="">
                     </a> <a href="#">
                         <img src="/assets/images/partners/02.png" alt="">

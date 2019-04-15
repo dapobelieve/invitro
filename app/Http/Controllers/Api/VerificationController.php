@@ -72,7 +72,7 @@ class VerificationController extends Controller
         //send email here
         if($type === 'training') {
             $applicant = $payment->applicant;
-            event(new ApplicationCreatedEvent($applicant->load('training')));
+//            event(new ApplicationCreatedEvent($applicant->load('training')));
         }
 
 

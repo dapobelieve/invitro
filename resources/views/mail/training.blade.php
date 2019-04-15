@@ -17,9 +17,7 @@
 
 <div style="font-family: Open Sans; margin: 10px">
     <div style=" padding-top: 5px; padding-bottom: 20px; padding-right: 50px; padding-left: 50px; margin: 0px;">
-        <h4>Hello, {{$applicant->name}}</h4>
-
-
+        <h4>IVF Academy - Training Registration</h4>
         <p>
             You just registered for a Training,
             <br>

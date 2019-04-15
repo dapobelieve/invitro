@@ -1,7 +1,7 @@
 <?php
 
-header("Access-Control-Allow-Origin: http://invitrofertilizationacademy.org, http://www.invitrofertilizationacademy.org/");
-header("Access-Control-Allow-Credentials: true");
+header("Access-Control-Allow-Origin: *");
+//header("Access-Control-Allow-Credentials: true");
 
 /**
  * Site Section
@@ -21,6 +21,10 @@ Route::delete('delete-training/{id}', 'Api\TrainingController@delete');
 Route::get('all-trainings', 'Api\TrainingController@index');
 
 Route::get('get-training/{id}', 'Api\TrainingController@show');
+
+Route::get('get-applicants/{training}', 'Api\ApplicantController@getApplicants');
+
+Route::get('get-applicant-details/{applicant}', 'Api\ApplicantController@getApplicantDetails');
 
 
 /**
