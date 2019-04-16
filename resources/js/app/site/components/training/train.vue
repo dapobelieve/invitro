@@ -23,7 +23,7 @@
                 if(this.data.image == "" || this.data.image == null) {
                     return `images/crop/train.jpg`
                 }
-                return `images/${this.data.image}`
+                return JSON.parse(this.data.image).secure_url;
             },
             truncate(text, length=26) {
                 return text.slice(0, length)+"...";

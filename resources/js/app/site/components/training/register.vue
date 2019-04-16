@@ -164,26 +164,26 @@
                         // this.form = {}
                         this.$swal({
                             title: 'Registration Successful',
-                            // text: response.data.message,
+                            text: response.data.message,
                             type: 'success',
                             // showConfirmButton: false
                         })
                         this.btn.state = !this.btn.state;
 
 
-                        this.$router.push({
-                            name: 'store-pay',
-                            params: {
-                                ref: response.data.data.application_ref
-                            },
-                            query: {
-                                type: 'training'
-                            }
-                        });
+                        // this.$router.push({
+                        //     name: 'store-pay',
+                        //     params: {
+                        //         ref: response.data.data.application_ref
+                        //     },
+                        //     query: {
+                        //         type: 'training'
+                        //     }
+                        // });
                     })
                     .catch(error => {
                         window.scrollTo(40, 0);
-                        this.btn.text = 'Register'
+                        this.btn.text = 'Register';
                         this.btn.state = !this.btn.state;
                         this.errors = error.response.data.errors;
                         // console.log(error.response.data)

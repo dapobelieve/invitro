@@ -11,7 +11,7 @@ class HomeController extends Controller
     public function index()
     {
         $products = Store::latest()->limit(5)->get();
-        $train    = Training::latest()->limit(4)->get();
+        $train    = Training::latest()->limit(5)->get();
 
 //        dd($products);
 

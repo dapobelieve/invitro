@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Traits\Upload;
+use Mail;
 use App\Http\Requests\ApplicationRequest;
+use App\Mail\TrainingReg;
 use App\Models\Applicant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Training;
 use App\Http\Requests\TrainingRequest;
 use Cloudder;
-use Storage;
 use Image;
-use App\Events\ApplicationCreatedEvent;
+
 
 class TrainingController extends Controller
 {
+    // for uploading to cloudinary
+    use Upload;
+
     public function index(Request $request)
     {
         $tr = Training::with('getApplicationsCount')->latest()->get();
@@ -34,7 +39,6 @@ class TrainingController extends Controller
             ]
         ]);
     }
-
 
     public function save(TrainingRequest $request)
     {
@@ -113,7 +117,10 @@ class TrainingController extends Controller
         $training = Training::with('materials')->findOrFail($id);
 
         if(!$training) {
-            abort(404);
+            return response()->json([
+                'status' => 'False',
+                'message' => 'Training not found'
+            ], 404);
         }
 
 
@@ -121,6 +128,64 @@ class TrainingController extends Controller
         return response()->json([
             'data' => $training,
         ]);
+    }
+
+    public function edit($id)
+    {
+        $training = Training::find($id);
+
+        if(!$training) {
+            return response()->json([
+                'status' => 'False',
+                'message' => 'Training not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'data' => $training,
+        ]);
+    }
+
+    public function update(TrainingRequest $request, $id)
+    {
+        $train = Training::find($id);
+        if(!$train) {
+            return response()->json([
+                'status' => 'False',
+                'message' => 'Training not found'
+            ], 404);
+        }
+
+        if ($request->hasFile('cimage')) {
+
+            if($train->imgae !== null || $train->image != '') {
+                $img = json_decode($train->image, true);
+                $this->deletePicture($img['public_id']);
+            }
+
+            $file = $request->cimage;
+            $imageData = $this->upload($file,'ivf-images', 350,null);
+            $data = [
+                'public_id' => $imageData['public_id'],
+                'secure_url' => $imageData['secure_url']
+            ];
+            $train->image = json_encode($data);
+            $train->save();
+        }
+
+        $train->update([
+            'title' => $request->title,
+            'price' => (int)$request->price,
+            'content' => $request->details,
+            'slug'    => str_slug($request->title).'-'.str_random(5)
+        ]);
+
+        return response()->json([
+            'data' => [
+                'message' => 'Update Successful'
+            ]
+        ]);
+
     }
 
     public function register(ApplicationRequest $request)
@@ -155,7 +220,7 @@ class TrainingController extends Controller
          * fire event to send a mail here
          * to applicant with application details
          */
-        event(new ApplicationCreatedEvent($applicant->load('training')));
+        Mail::to($applicant->email)->send(new TrainingReg($applicant->load('training')));
 
 
         return response()->json([

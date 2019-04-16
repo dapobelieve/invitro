@@ -5,11 +5,11 @@ use Cloudder;
 
 trait Upload
 {
-    public function upload($file, $folder, $width, $height, $quality='auto')
+    public function upload($file, $folder, $width, $height=null, $quality='auto')
     {
         $result  =  Cloudder::upload($file,null, $options = array(
             'folder'   => $folder,
-            'timeout'  =>  600,
+            'timeout'  =>  3600,
             'height'   => $height,
             'width'    => $width,
             'quality'  => $quality,

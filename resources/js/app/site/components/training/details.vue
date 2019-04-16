@@ -95,7 +95,7 @@
                     return `images/crop/train.jpg`
                 }
 
-                return `images/${this.data.image}`
+                return JSON.parse(this.data.image).secure_url;
             },
             home ()
             {

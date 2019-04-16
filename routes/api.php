@@ -21,6 +21,8 @@ Route::delete('delete-training/{id}', 'Api\TrainingController@delete');
 Route::get('all-trainings', 'Api\TrainingController@index');
 
 Route::get('get-training/{id}', 'Api\TrainingController@show');
+Route::get('edit-training/{id}', 'Api\TrainingController@edit');
+Route::post('update-training/{id}', 'Api\TrainingController@update');
 
 Route::get('get-applicants/{training}', 'Api\ApplicantController@getApplicants');
 
@@ -52,8 +54,9 @@ Route::get('verify-payment/{payment}/{payref}/{type}', 'Api\VerificationControll
 
 
 
+
 /**
- * Admin Section
+ * Admin Section For store
  */
 
 Route::get('index', 'Api\ProductController@index');

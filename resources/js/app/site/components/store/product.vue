@@ -27,7 +27,7 @@
         props: ['product'],
         methods: {
             getImage () {
-                return '/store/crop/'+this.product.image;
+                return JSON.parse(this.product.image).secure_url;
             },
             ...mapActions({
                 addProductToCart: 'shop/addProductToCart'

@@ -127,7 +127,7 @@
         },
         methods: {
             getImage (data) {
-                return '/store/crop/'+data;
+                return JSON.parse(data).secure_url;
             },
             home () {
                 window.location = window.location.origin

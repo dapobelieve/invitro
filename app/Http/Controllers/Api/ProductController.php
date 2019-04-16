@@ -40,54 +40,27 @@ class ProductController extends Controller
     public function create(StoreRequest $request)
     {
         $storeImage = null;
-        //if hasImage process it
-        if ($request->hasFile('image')) {
-            try {
-                    $material = Cloudder::upload($file->path(), $file->getClientOriginalName(), [
-                        'folder' => 'ivf-store-images',
-                        'quality' => 50,
-                        'height' => 280,
-                        'width' => 360,
-                        'timeout' => 3600
-                    ]);
-
-                    if ($material){
-                        $training->materials()->create([
-                            'material' => json_encode(Cloudder::getResult()),
-                        ]);
-                    }
-
-                }catch (\Exception $e) {
-                    return response()->json([
-                        'data' => [],
-                        'message' => $e->getMessage()
-                    ], 500);
-                }
-            $image = $request->file('image');
-            $extension = $image->getClientOriginalExtension();
-            $storeImage = uniqid();
-            $originalPath = public_path('store/original/').$storeImage.'.'.$extension ;
-            $cropPath     = public_path('store/crop/').$storeImage.'.'.$extension ;
-
-
-            //store original
-            Image::make($image)->save($originalPath);
-
-
-            //store crop
-            Image::make($image)->resize(360, 280, function ($con) {
-                $con->aspectRatio();
-            })->save($cropPath);
-        }
-
         //process other body parts
         $product = Store::firstOrCreate([
             'name' => $request->name,
             'price' => (float)$request->price,
             'details' => $request->details,
-            'image'   => $storeImage == '' ? null : $storeImage.".".$extension,
             'slug' => str_slug($request->name).'-'.str_random(5)
         ]);
+
+        //if hasImage process it
+        if ($request->hasFile('image')) {
+            $file = $request->image;
+            $imageData = $this->upload($file,'ivf-images', 360,null);
+            $data = [
+                'public_id' => $imageData['public_id'],
+                'secure_url' => $imageData['secure_url']
+            ];
+
+            $product->image = json_encode($data);
+            $product->save();
+
+        }
 
         return response()->json([
             'data' => [
@@ -100,6 +73,11 @@ class ProductController extends Controller
     public function delete($id)
     {
         $product = Store::findOrFail($id);
+
+        //get cloudinary pubic_id
+//        $img = json_decode($product->image, true);
+//
+//        $this->deletePicture($img['public_id']);
         $product->delete();
 
         return response()->json([
@@ -131,21 +109,19 @@ class ProductController extends Controller
         $storeImage = null;
         //if hasImage process it
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $extension = $image->getClientOriginalExtension();
-            $storeImage = uniqid();
-            $originalPath = public_path('store/original/').$storeImage.'.'.$extension ;
-            $cropPath     = public_path('store/crop/').$storeImage.'.'.$extension ;
 
-            //store original
-            Image::make($image)->save($originalPath);
+//            if($product->imgae !== null || $product->image != '') {
+//                $img = json_decode($product->image, true);
+//                $this->deletePicture($img['public_id']);
+//            }
 
-            //store crop
-            Image::make($image)->resize(360, 280, function ($con) {
-                $con->aspectRatio();
-            })->save($cropPath);
-
-            $product->image = $storeImage.".".$extension;
+            $file = $request->image;
+            $imageData = $this->upload($file,'ivf-images', 360,null);
+            $data = [
+                'public_id' => $imageData['public_id'],
+                'secure_url' => $imageData['secure_url']
+            ];
+            $product->image = json_encode($data);
             $product->save();
         }
 

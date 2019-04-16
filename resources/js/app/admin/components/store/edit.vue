@@ -134,7 +134,7 @@
         },
         methods: {
             getImage () {
-                return '/store/original/'+this.product.prevImage;
+                return JSON.parse(this.product.prevImage).secure_url;
             },
             imageAdded (e) {
                 this.product.image = e;
