@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Traits\Upload;
+use App\Mail\NotifyAdmin;
 use Mail;
 use App\Http\Requests\ApplicationRequest;
 use App\Mail\TrainingReg;
@@ -215,13 +216,13 @@ class TrainingController extends Controller
         //create payment record
         $this->createPaymentDetails($applicant, $training);
 
-
+        //notify ivf mail
+        Mail::to(config('site.site.email'))->send(new NotifyAdmin($applicant->load('training')));
         /**
          * fire event to send a mail here
          * to applicant with application details
          */
         Mail::to($applicant->email)->send(new TrainingReg($applicant->load('training')));
-
 
         return response()->json([
             'data' => [

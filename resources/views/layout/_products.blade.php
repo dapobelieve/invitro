@@ -27,7 +27,7 @@
                     <div class="gallery-item rounded">
                         <div class="item-media rounded overflow_hidden">
                             {{--<p>{{ $image->image }}</p>--}}
-                            <img src="store/crop/{{ $image->image }}" alt="">
+                            <img src="{{ json_decode($image->image, true)['secure_url'] }}" alt="">
                             <div class="media-links inverse">
                                 {{--<a href="store/crop/{{ $item->image }}"--}}
                                    {{--class="abs-link prettyPhoto" title=""--}}
