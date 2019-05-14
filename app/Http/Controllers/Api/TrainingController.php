@@ -36,7 +36,7 @@ class TrainingController extends Controller
     {
         return response()->json([
             'data' => [
-                'training' => Training::with('materials')->where('id', $training->id)->first(),
+                'training' => Training::with('materials', 'getApplicationsCount')->where('id', $training->id)->first(),
             ]
         ]);
     }
@@ -66,7 +66,8 @@ class TrainingController extends Controller
         //create record
         $training = Training::firstOrCreate([
             'title' => $request->title,
-            'price' => 0,
+            'price' => (int)$request->cost,
+            'slots' => (int)$request->slots,
             'image' => $trainImage == '' ? '' : $trainImage.'.'.$extension,
             'content' => $request->details,
             'slug'    => str_slug($request->title).'-'.str_random(5)
@@ -177,6 +178,7 @@ class TrainingController extends Controller
         $train->update([
             'title' => $request->title,
             'price' => (int)$request->price,
+            'slots' => (int)$request->slots,
             'content' => $request->details,
             'slug'    => str_slug($request->title).'-'.str_random(5)
         ]);
@@ -232,11 +234,33 @@ class TrainingController extends Controller
         ]);
     }
 
-    private function createPaymentDetails(Applicant $applicant, Training $training)
+    public function registerManual(Request $request)
+    {
+        $training = Training::find($request->id);
+
+        //register user
+        $applicant = $training->applications()->firstOrCreate([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'occupation' => $request->occupation,
+            'ip' => $request->ip(),
+            'reference' => 'IVFA-'.str_random(7)
+        ]);
+
+        $this->createPaymentDetails($applicant, $training, 'PAID');
+
+        return response()->json([
+            'message' => 'Applicant created successfully'
+        ]);
+    }
+
+    private function createPaymentDetails(Applicant $applicant, Training $training, $status= "NOT PAID")
     {
         $applicant->payment()->create([
             'trxn_ref' => $applicant->reference,
-            'amount'   => (int) $training->price
+            'amount'   => (int) $training->price,
+            'status' => $status
         ]);
     }
 

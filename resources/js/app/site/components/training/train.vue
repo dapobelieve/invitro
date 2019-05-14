@@ -6,7 +6,7 @@
                 </div>
                 <div class="item-content">
                     <h4> <a href="#">{{ data.title }}</a> </h4>
-                    <!--<div v-html="truncate(data.content, 30)"></div>-->
+                    <p>Slots: {{ slot }}</p>
                     <p class="topmargin_20">
                         <router-link :to="{name: 'train-details', params:{slug: data.slug}}" class="theme_button color1 inverse min_width_button">Details</router-link>
                     </p>
@@ -18,6 +18,13 @@
 <script>
     export default {
         props: ['data'],
+        computed: {
+            slot () {
+                if (this.data.get_applications_count[0])
+                    return this.data.slots - this.data.get_applications_count[0].count;
+                return this.data.slots
+            }
+        },
         methods: {
             getImage() {
                 if(this.data.image == "" || this.data.image == null) {

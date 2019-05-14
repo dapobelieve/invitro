@@ -21,15 +21,26 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-sm-3 col-md-3 col-lg-2 control-label">Cost</label>
-                                <div class="col-sm-9 col-md-9 col-lg-10">
-                                <input
-                                type="number"
-                                min="1000"
-                                v-model.numnber="course.price"
-                                placeholder="Training Fee"
-                                class="form-control input-sm" />
+                                    <label class="col-sm-3 col-md-3 col-lg-2 control-label">Cost</label>
+                                    <div class="col-sm-9 col-md-9 col-lg-10">
+                                        <input
+                                        type="number"
+                                        min="1000"
+                                        v-model.numnber="course.price"
+                                        placeholder="Training Fee"
+                                        class="form-control input-sm" />
+                                    </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 col-md-3 col-lg-2 control-label">Slots</label>
+                                    <div class="col-sm-9 col-md-9 col-lg-10">
+                                        <input
+                                        type="number"
+                                        min="1"
+                                        v-model.number="course.slots"
+                                        placeholder="Available Slots"
+                                        class="form-control input-sm" />
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 col-md-3 col-lg-2 control-label">Display Image</label>
@@ -208,6 +219,7 @@
                 td.append('title', this.course.title);
                 td.append('price', this.course.price);
                 td.append('details', this.course.content);
+                td.append('slots', this.course.slots);
 
                 if(this.course.image != '') {
                     td.append('cimage', this.course.image)

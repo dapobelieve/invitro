@@ -26,6 +26,7 @@
                             <div class="item-media"> <img :src="getImage()" alt=""> </div>
                             <div class="item-content">
                                 <h4> {{ data.title }} </h4>
+                                <p><strong>{{ slot }}</strong> slots left</p>
                             </div>
                             <div class="item-content with_top_border">
                                 <div class="media small-teaser">
@@ -86,6 +87,13 @@
                 return {
                     inner: this.data.title
                 }
+            }
+        },
+        computed: {
+            slot () {
+                if (this.data.get_applications_count[0])
+                    return this.data.slots - this.data.get_applications_count[0].count;
+                return this.data.slots
             }
         },
         methods: {

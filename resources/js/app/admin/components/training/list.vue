@@ -15,6 +15,7 @@
                                 <th></th>
                                 <th>Title</th>
                                 <th>Price</th>
+                                <th>Slots</th>
                                 <th>Applicants</th>
                                 <th>options</th>
                             </tr>
@@ -24,6 +25,7 @@
                                 <td>{{ index + 1 }}</td>
                                 <td>{{ data.title }}</td>
                                 <td>&#8358{{ (data.price).toLocaleString() }}</td>
+                                <td>{{ data.slots }}</td>
                                 <td v-if="data.get_applications_count.length">
                                     {{ data.get_applications_count[0]["count"] }}
                                 </td>

@@ -12,6 +12,7 @@ Route::get('get-training-details/{training}', 'Api\TrainingController@getTrainin
  * Regiter for training
  */
 Route::post('training-register', 'Api\TrainingController@register');
+Route::post('manual-training-register', 'Api\TrainingController@registerManual');
 
 
 
