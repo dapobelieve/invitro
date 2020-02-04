@@ -49,9 +49,8 @@ class TrainingController extends Controller
         if ($request->hasFile('cimage')) {
 
             $image = $request->file('cimage');
-            $extension  = $image->getClientOriginalExtension();
             
-            Cloudder::upload($file->path(), $file->getClientOriginalName(), [
+            Cloudder::upload($image, null, [
                 'folder' => 'ivf-images',
                 'quality' => 'auto',
                 'timeout' => 3600
